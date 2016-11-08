@@ -111,8 +111,8 @@
           <div id="insumos_menu_c" class="panel-collapse collapse sidebar-links-inner <?php if(isset($activeLink['insumos'])) echo "in" ?>">
               <ul class="inner-sidebar-links">
                   <?php if($this->user->info->user_level >= 4)  : ?>
-                  <li class="<?php if(isset($activeLink['catalogo']['insumos'])) echo "active" ?>">
-                      <a href="<?php echo site_url("insumos") ?>">
+                  <li class="<?php if(isset($activeLink['catalogo']['caja'])) echo "active" ?>">
+                      <a href="<?php echo site_url("caja") ?>">
                           <span class="glyphicon glyphicon-file"></span> Caja Chica <span class="sr-only">(current)</span>
                       </a>
                   </li>

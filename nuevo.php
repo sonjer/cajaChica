@@ -14,89 +14,62 @@
             <div class="col-md-12">
                 <div class="panel panel-warning height">
                     <div class="panel-heading">
-                        <span class="glyphicon glyphicon-user"></span> FORMULARIO CAJA CHICA
+                        <span class="glyphicon glyphicon-user"></span> Datos Generales
                         <div class="db-header-extra">
 
                         </div>
                     </div>
                     <div class="panel-body">
                        <div class="row">
-                        <?php echo form_open_multipart(site_url("admin/edit_member_pro"), array("class" => "form-horizontal")) ?>                    
-                        <div class="col-xs-2">
-                         <div class="input-group">
-                          <div class="input-group-btn">
-                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CeCo <span class="caret"></span></button>
-                           <ul class="dropdown-menu">
-                            <li><a href="#">LG000</a></li>
-                            <li><a href="#">LG001</a></li>
-                            <li><a href="#">LG002</a></li>
-                           </ul>
-                          </div><!-- /btn-group -->
-                         <input type="text" class="form-control" aria-label="...">
-                        </div><!-- /input-group -->
-                       </div><!-- /.col-xs-2 -->
+                        <?php echo form_open_multipart(site_url("admin/edit_member_pro"), array("class" => "form-horizontal")) ?>
+                        
+                        <div class='form-group col-sm-4' id="nombres_field_box">
+                            <div class='col-sm-12' id="nombres_input_box">
+                                <input id='txtnombres' class='form-control input-sm' name='nombres' placeholder="Nombres" type='text' value="" maxlength='50' />
+                            </div>
+                        </div>
 
                         <div class='form-group col-sm-4' id="apellidos_field_box">
                             <div class='col-sm-12' id="apellidos_input_box">
-                                <input id='txtapellidos' class='form-control input-sm' name='apellidos' placeholder="NUMERO DE FACTURA" type='text' value="" maxlength='100' />
+                                <input id='txtapellidos' class='form-control input-sm' name='apellidos' placeholder="Apellidos" type='text' value="" maxlength='100' />
                             </div>
                         </div>
 
                         <div class='form-group col-sm-4' id="fechaNacimiento_field_box">
-                        <label class="control-label col-sm-5" id="fechaNacimiento_display"> FECHA</label>
-                            
-  <div class="container">
-    <div class="row">
-        <div class='col-sm-2'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-    </div>
-</div>
+                        <label class="control-label col-sm-5" id="fechaNacimiento_display"> Nacimiento</label>
+                            <div class='col-sm-7' id="fechaNacimiento_input_box">
+                                <input id='txtfechaNacimiento' name='fechaNacimiento' type='text' value='' maxlength='10' class='datepicker-input form-control  input-sm' />
+                            </div>
                         </div>                        
 
-                        <div class='form-group col-sm-7' id="NSS_field_box">
-                            <label class="control-label col-sm-2" id="NSS_display">PROVEEDOR</label>
+                        <div class='form-group col-sm-4' id="CURP_field_box">
+                            <label class="control-label col-sm-3" id="CURP_display">CURP</label>
+                            <div class='col-sm-9' id="CURP_input_box">
+                                <input id='txtCURP' class='form-control input-sm' ng-model="txtCURP" name='CURP' type='text' value="" onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength='18' />
+                            </div>
+                        </div>
+
+                        <div class='form-group col-sm-4' id="NSS_field_box">
+                            <label class="control-label col-sm-2" id="NSS_display">NSS</label>
                             <div class='col-sm-10' id="NSS_input_box">
-                                    <input id='txtLproveedor' class='form-control input-sm' name='Proveedor' placeholder="Nombre Proveedor" type='text' value="" maxlength='100' />
+                                <input id='txtNSS' class='form-control input-sm' name='NSS' onkeyup="javascript:this.value=this.value.toUpperCase();" type='text' value="" maxlength='12' />
+                            </div>
+                        </div>
+
+                        <div class='input-group col-sm-4' id="RFC_field_box">
+                            <label class="control-label col-sm-2" id="RFC_display">R.F.C</label>
+                            <span class="input-group-addon" id="basic-addon3">{{txtCURP.substr(9)}}</span>
+                            <div class='col-sm-5' id="RFC_input_box">
+                                <input id='txtRFC' class='form-control input-sm' name='RFC' onkeyup="javascript:this.value=this.value.toUpperCase();" type='text' value="" maxlength='15' />
                             </div>
                         </div>
                         <div class='form-group col-sm-7 pull-left' id="RFC_field_box">
-                            <label class="control-label col-sm-2" id="RFC_display">DESCRIPCION</label>
-                            <div class='col-sm-10' id="RFC_input_box">
-                                <input id='txtdescripcion' class='form-control input-sm' name='DescripciÃ³n' placeholder="DescripciÃ³n " type='text' value="" maxlength='100' />
+                            <label class="control-label col-sm-4" id="RFC_display">Lugar de Nacimiento</label>
+                            <div class='col-sm-8' id="RFC_input_box">
+                                <input id='txtLugarNacimiento' class='form-control input-sm' name='LugarNacimiento' placeholder="Lugar de Nacimiento" type='text' value="" maxlength='100' />
 
                             </div>
                         </div>
-                        <div class='input-group col-sm-4' id="RFC_field_box">
-                            <label class="control-label col-sm-3" id="RFC_display">IMPORTE</label>
-                            <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
-                            </div>
-                        </div><br>
-                        <div class='input-group col-sm-4' id="RFC_field_box">
-                            <label class="control-label col-sm-3" id="RFC_display">I.V.A</label>
-                            <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
-                            </div>
-                        </div><br>
-                        <div class='input-group col-sm-7' id="RFC_field_box">
-                            <label class="control-label col-sm-3" id="RFC_display">MONTO TOTAL</label>
-                            <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
-                            </div>
-                        </div><br>
                         <div class="row">
                             <div class="col-sm-5">
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
@@ -223,7 +196,7 @@ function validaCURP2(curp){
     var lngDigito    = 0.0;
     var strDigitoVer = "";
     var intFactor    = new Array(17);
-    var chrCaracter  = "0123456789ABCDEFGHIJKLMNï¿½OPQRSTUVWXYZ";
+    var chrCaracter  = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
     segRaiz = curp.substring(0,17);
     digVer  = curp.substring(17,18);
@@ -254,14 +227,14 @@ function validaCURP2(curp){
     var reg = /[A-Z]{4}\d{6}[HM][A-Z]{2}[B-DF-HJ-NP-TV-Z]{3}[A-Z0-9][0-9]/;
     if(curp.search(reg))
     {
-        alert("La curp: " + curp + " no es valida, verifiquï¿½ ");
+        alert("La curp: " + curp + " no es valida, verifiqué ");
         return false;
         
     }
     
     if(!(parseInt(lngDigito)==parseInt(digVer)))
     {
-        alert("La curp: " + curp + " no es valida, revisï¿½ el Digito Verificador (" +  lngDigito + ")");
+        alert("La curp: " + curp + " no es valida, revisé el Digito Verificador (" +  lngDigito + ")");
         return false;
     }
     return true;
