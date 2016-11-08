@@ -5,5 +5,4 @@ function index()
 $this->load->view('cajaChica');
 }
 }
-
 ?>
