@@ -37,7 +37,8 @@
                        </div><!-- /.col-xs-2 -->
 
                         <div class='form-group col-sm-4' id="apellidos_field_box">
-                            <div class='col-sm-12' id="apellidos_input_box">
+                            <label class="control-label col-sm-3" id="fechaNacimiento_display"> FACTURA</label>
+                            <div class='col-sm-9' id="apellidos_input_box">
                                 <input id='txtapellidos' class='form-control input-sm' name='apellidos' placeholder="NUMERO DE FACTURA" type='text' value="" maxlength='100' />
                             </div>
                         </div>
@@ -45,25 +46,25 @@
                         <div class='form-group col-sm-4' id="fechaNacimiento_field_box">
                         <label class="control-label col-sm-5" id="fechaNacimiento_display"> FECHA</label>
                             
-  <div class="container">
-    <div class="row">
-        <div class='col-sm-2'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-    </div>
-</div>
+                        <div class="container">
+                         <div class="row">
+                          <div class='col-sm-2'>
+                           <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                           </span>
+                          </div>
+                          </div>
+                         </div>
+                         <script type="text/javascript">
+                          $(function () {
+                          $('#datetimepicker1').datetimepicker();
+                          });
+                         </script>
+                        </div>
+                       </div>
                         </div>                        
 
                         <div class='form-group col-sm-7' id="NSS_field_box">
@@ -75,26 +76,26 @@
                         <div class='form-group col-sm-7 pull-left' id="RFC_field_box">
                             <label class="control-label col-sm-2" id="RFC_display">DESCRIPCION</label>
                             <div class='col-sm-10' id="RFC_input_box">
-                                <input id='txtdescripcion' class='form-control input-sm' name='Descripción' placeholder="Descripción " type='text' value="" maxlength='100' />
+                                <input id='txtdescripcion' class='form-control input-sm' name='Descripción' placeholder="Descripción" type='text' value="" maxlength='100' />
 
                             </div>
                         </div>
                         <div class='input-group col-sm-4' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">IMPORTE</label>
                             <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
+                                 <input id='txtLimporte' class='form-control input-sm' name='Importe'  type='text' value="" maxlength='100' />
                             </div>
                         </div><br>
                         <div class='input-group col-sm-4' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">I.V.A</label>
                             <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
+                                 <input id='txtLimporte' class='form-control input-sm' name='iva'  type='text' value="" maxlength='100' />
                             </div>
                         </div><br>
                         <div class='input-group col-sm-7' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">MONTO TOTAL</label>
-                            <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Proveedor'  type='text' value="" maxlength='100' />
+                            <div class='col-sm-3' id="NSS_input_box">
+                                 <input id='txtLimporte' class='form-control input-sm' name='monto total'  type='text' value="" maxlength='100' />
                             </div>
                         </div><br>
                         <div class="row">
