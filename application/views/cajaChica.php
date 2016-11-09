@@ -112,7 +112,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="panel panel-warning height">
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-user"></span> Datos Generales
@@ -124,49 +124,49 @@
                     <?php echo form_open_multipart(site_url("admin/edit_member_pro"), array("class" => "form-horizontal")) ?>
 
                     <div class='form-group col-sm-12' id="domicilio_field_box">
-                        <label class="control-label col-sm-2" id="domicilio_display">Domicilio</label>
-                        <div class='col-sm-6' id="domicilio_input_box">
+                        <label class="control-label col-sm-3" id="domicilio_display">SEMANA</label>
+                        <div class='col-sm-3' id="domicilio_input_box">
                             <input id='txtdomicilio' class='form-control input-sm' name='domicilio' type='text' value="" maxlength='200' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="telefono_field_box">
-                        <label class="control-label col-sm-2" id="telefono_display">Telefono</label>
-                        <div class='col-sm-6' id="telefono_input_box">
+                        <label class="control-label col-sm-3" id="telefono_display">FECHA</label>
+                        <div class='col-sm-3' id="telefono_input_box">
                             <input id='txttelefono' class='form-control input-sm' name='telefono' type='text' value="" maxlength='25' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioNombre_field_box">
-                        <label class="control-label col-sm-2" id="beneficiarioNombre_display">BeneficiarioNombre</label>
-                        <div class='col-sm-6' id="beneficiarioNombre_input_box">
+                        <label class="control-label col-sm-3" id="beneficiarioNombre_display">MONTO CAJA</label>
+                        <div class='col-sm-3' id="beneficiarioNombre_input_box">
                             <input id='txtbeneficiarioNombre' class='form-control input-sm' name='beneficiarioNombre' type='text' value="" maxlength='200' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioParentesco_field_box">
-                        <label class="control-label col-sm-2" id="beneficiarioParentesco_display">BeneficiarioParentesco</label>
-                        <div class='col-sm-6' id="beneficiarioParentesco_input_box">
+                        <label class="control-label col-sm-3" id="beneficiarioParentesco_display">DIFERENCIA </label>
+                        <div class='col-sm-3' id="beneficiarioParentesco_input_box">
                             <input id='txtbeneficiarioParentesco' class='form-control input-sm' name='beneficiarioParentesco' type='text' value="" maxlength='20' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioRFC_field_box">
-                        <label class="control-label col-sm-2" id="beneficiarioRFC_display">BeneficiarioRFC</label>
-                        <div class='col-sm-6' id="beneficiarioRFC_input_box">
+                        <label class="control-label col-sm-3" id="beneficiarioRFC_display">SOLICIATA</label>
+                        <div class='col-sm-3' id="beneficiarioRFC_input_box">
                             <input id='txtbeneficiarioRFC' class='form-control input-sm' name='beneficiarioRFC' type='text' value="" maxlength='15' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="idEstatus_field_box">
-                        <label class="control-label col-sm-2" id="idEstatus_display">IdEstatus</label>
-                        <div class='col-sm-6' id="idEstatus_input_box">
-                            <input id='txtidEstatus' class='form-control input-sm' name='idEstatus' type='text' value="" maxlength='1' />
+                        <label class="control-label col-sm-3" id="idEstatus_display">CONSECUTIVO</label>
+                        <div class='col-sm-3' id="idEstatus_input_box">
+                            <input id='txtidEstatus' class='form-control input-sm' name='idEstatus' type='text' value="" maxlength='10' />
                         </div>
                     </div>
 
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Eliminar Usuario</button>
+                        <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Eliminar </button>
                         <button type="submit" class="btn btn-primary btn-sm">Guardar Cambios</button>
                     </div>
                 </div>
