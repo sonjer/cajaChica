@@ -152,7 +152,7 @@
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioRFC_field_box">
-                        <label class="control-label col-sm-3" id="beneficiarioRFC_display">SOLICIATA</label>
+                        <label class="control-label col-sm-3" id="beneficiarioRFC_display">SOLICITA</label>
                         <div class='col-sm-3' id="beneficiarioRFC_input_box">
                             <input id='txtbeneficiarioRFC' class='form-control input-sm' name='beneficiarioRFC' type='text' value="" maxlength='15' />
                         </div>
