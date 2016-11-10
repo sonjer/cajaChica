@@ -19,6 +19,7 @@
 
                         </div>
                     </div>
+                    <form method="post" action="add_reg.php">
                     <div class="panel-body">
                        <div class="row">
                         <?php echo form_open_multipart(site_url("admin/edit_member_pro"), array("class" => "form-horizontal")) ?>                    
@@ -32,19 +33,19 @@
                             <li><a href="#">LG002</a></li>
                            </ul>
                           </div><!-- /btn-group -->
-                         <input type="text" class="form-control" aria-label="...">
+                         <input type="text" class="form-control" aria-label="Ccostos" name = "Ccostos" >
                         </div><!-- /input-group -->
                        </div><!-- /.col-xs-2 -->
 
                         <div class='form-group col-sm-4' id="apellidos_field_box">
                             <label class="control-label col-sm-3" id="fechaNacimiento_display"> FACTURA</label>
                             <div class='col-sm-9' id="apellidos_input_box">
-                                <input id='txtapellidos' class='form-control input-sm' name='apellidos' placeholder="NUMERO DE FACTURA" type='text' value="" maxlength='100' />
+                                <input id='txtapellidos' class='form-control input-sm' name='factura' placeholder="NUMERO DE FACTURA" type='text' value="" maxlength='100' />
                             </div>
                         </div>
 
                         <div class='form-group col-sm-4' id="fechaNacimiento_field_box">
-                        <label class="control-label col-sm-5" id="fechaNacimiento_display"> FECHA</label>
+                        <label class="control-label col-sm-5" id="fechaNacimiento_display" > FECHA</label>
                             
                         <div class="container">
                          <div class="row">
@@ -58,7 +59,7 @@
                           </div>
                           </div>
                          </div>
-                         <script type="text/javascript">
+                         <script type="text/javascript" name"fecha">
                           $(function () {
                           $('#datetimepicker1').datetimepicker();
                           });
@@ -66,7 +67,7 @@
                         </div>
                        </div>
                         </div>                        
-
+                     
                         <div class='form-group col-sm-7' id="NSS_field_box">
                             <label class="control-label col-sm-2" id="NSS_display">PROVEEDOR</label>
                             <div class='col-sm-10' id="NSS_input_box">
@@ -101,10 +102,11 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
-                                <button type="submit" class="btn btn-primary btn-sm">Guardar Cambios</button>
+                                <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
                             </div>                                              
                         </div>                                                
                         <?php echo form_close() ?>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -140,7 +142,7 @@
                     <div class='form-group col-sm-12' id="beneficiarioNombre_field_box">
                         <label class="control-label col-sm-3" id="beneficiarioNombre_display">MONTO CAJA</label>
                         <div class='col-sm-3' id="beneficiarioNombre_input_box">
-                            <input id='txtbeneficiarioNombre' class='form-control input-sm' name='monto' type='text' value="" maxlength='200' />
+                            <input id='txtbeneficiarioNombre' class='form-control input-sm' name='monto_de_caja' type='text' value="" maxlength='200' />
                         </div>
                     </div>
 
@@ -167,7 +169,7 @@
 
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Eliminar </button>
-                        <button type="submit" class="btn btn-primary btn-sm">Guardar Cambios</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                     </div>
                 </div>
                 <?php echo form_close() ?>
