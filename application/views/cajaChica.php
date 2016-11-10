@@ -70,20 +70,20 @@
                         <div class='form-group col-sm-7' id="NSS_field_box">
                             <label class="control-label col-sm-2" id="NSS_display">PROVEEDOR</label>
                             <div class='col-sm-10' id="NSS_input_box">
-                                    <input id='txtLproveedor' class='form-control input-sm' name='Proveedor' placeholder="Nombre Proveedor" type='text' value="" maxlength='100' />
+                                    <input id='txtLproveedor' class='form-control input-sm' name='proveedor' placeholder="Nombre Proveedor" type='text' value="" maxlength='100' />
                             </div>
                         </div>
                         <div class='form-group col-sm-7 pull-left' id="RFC_field_box">
                             <label class="control-label col-sm-2" id="RFC_display">DESCRIPCION</label>
                             <div class='col-sm-10' id="RFC_input_box">
-                                <input id='txtdescripcion' class='form-control input-sm' name='Descripción' placeholder="Descripción" type='text' value="" maxlength='100' />
+                                <input id='txtdescripcion' class='form-control input-sm' name='descripcon' placeholder="Descripción" type='text' value="" maxlength='100' />
 
                             </div>
                         </div>
                         <div class='input-group col-sm-4' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">IMPORTE</label>
                             <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='Importe'  type='text' value="" maxlength='100' />
+                                 <input id='txtLimporte' class='form-control input-sm' name='importe'  type='text' value="" maxlength='100' />
                             </div>
                         </div><br>
                         <div class='input-group col-sm-4' id="RFC_field_box">
@@ -95,7 +95,7 @@
                         <div class='input-group col-sm-7' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">MONTO TOTAL</label>
                             <div class='col-sm-3' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='monto total'  type='text' value="" maxlength='100' />
+                                 <input id='txtLimporte' class='form-control input-sm' name='Total'  type='text' value="" maxlength='100' />
                             </div>
                         </div><br>
                         <div class="row">
@@ -126,42 +126,42 @@
                     <div class='form-group col-sm-12' id="domicilio_field_box">
                         <label class="control-label col-sm-3" id="domicilio_display">SEMANA</label>
                         <div class='col-sm-3' id="domicilio_input_box">
-                            <input id='txtdomicilio' class='form-control input-sm' name='domicilio' type='text' value="" maxlength='200' />
+                            <input id='txtdomicilio' class='form-control input-sm' name='semana' type='text' value="" maxlength='200' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="telefono_field_box">
                         <label class="control-label col-sm-3" id="telefono_display">FECHA</label>
                         <div class='col-sm-3' id="telefono_input_box">
-                            <input id='txttelefono' class='form-control input-sm' name='telefono' type='text' value="" maxlength='25' />
+                            <input id='txttelefono' class='form-control input-sm' name='fecha' type='text' value="" maxlength='25' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioNombre_field_box">
                         <label class="control-label col-sm-3" id="beneficiarioNombre_display">MONTO CAJA</label>
                         <div class='col-sm-3' id="beneficiarioNombre_input_box">
-                            <input id='txtbeneficiarioNombre' class='form-control input-sm' name='beneficiarioNombre' type='text' value="" maxlength='200' />
+                            <input id='txtbeneficiarioNombre' class='form-control input-sm' name='monto' type='text' value="" maxlength='200' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioParentesco_field_box">
                         <label class="control-label col-sm-3" id="beneficiarioParentesco_display">DIFERENCIA </label>
                         <div class='col-sm-3' id="beneficiarioParentesco_input_box">
-                            <input id='txtbeneficiarioParentesco' class='form-control input-sm' name='beneficiarioParentesco' type='text' value="" maxlength='20' />
+                            <input id='txtbeneficiarioParentesco' class='form-control input-sm' name='diferencia' type='text' value="" maxlength='20' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="beneficiarioRFC_field_box">
                         <label class="control-label col-sm-3" id="beneficiarioRFC_display">SOLICITA</label>
                         <div class='col-sm-3' id="beneficiarioRFC_input_box">
-                            <input id='txtbeneficiarioRFC' class='form-control input-sm' name='beneficiarioRFC' type='text' value="" maxlength='15' />
+                            <input id='txtbeneficiarioRFC' class='form-control input-sm' name='solicita' type='text' value="" maxlength='15' />
                         </div>
                     </div>
 
                     <div class='form-group col-sm-12' id="idEstatus_field_box">
                         <label class="control-label col-sm-3" id="idEstatus_display">CONSECUTIVO</label>
                         <div class='col-sm-3' id="idEstatus_input_box">
-                            <input id='txtidEstatus' class='form-control input-sm' name='idEstatus' type='text' value="" maxlength='10' />
+                            <input id='txtidEstatus' class='form-control input-sm' name='consecutivo' type='text' value="" maxlength='10' />
                         </div>
                     </div>
 
