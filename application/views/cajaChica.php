@@ -14,15 +14,15 @@
             <div class="col-md-12">
                 <div class="panel panel-warning height">
                     <div class="panel-heading">
-                        <span class="glyphicon glyphicon-user"></span> FORMULARIO CAJA CHICA
+                        <span class="glyphicon glyphicon-user"></span> NUEVO REGISTRO DE EGRESO CAJA
                         <div class="db-header-extra">
 
                         </div>
                     </div>
-                    <form method="post" action="add_reg.php">
                     <div class="panel-body">
                        <div class="row">
-                        <?php echo form_open_multipart(site_url("admin/edit_member_pro"), array("class" => "form-horizontal")) ?>                    
+                     
+                         <form method="post" action="add_reg.php">                  
                         <div class="col-xs-2">
                          <div class="input-group">
                           <div class="input-group-btn">
@@ -33,7 +33,7 @@
                             <li><a href="#">LG002</a></li>
                            </ul>
                           </div><!-- /btn-group -->
-                         <input type="text" class="form-control" aria-label="Ccostos" name = "Ccostos" >
+                         <input type="text" class="form-control" aria-label="..." name = "Ccostos" value=""  >
                         </div><!-- /input-group -->
                        </div><!-- /.col-xs-2 -->
 
@@ -44,29 +44,12 @@
                             </div>
                         </div>
 
-                        <div class='form-group col-sm-4' id="fechaNacimiento_field_box">
-                        <label class="control-label col-sm-5" id="fechaNacimiento_display" > FECHA</label>
-                            
-                        <div class="container">
-                         <div class="row">
-                          <div class='col-sm-2'>
-                           <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                           </span>
-                          </div>
-                          </div>
-                         </div>
-                         <script type="text/javascript" name"fecha">
-                          $(function () {
-                          $('#datetimepicker1').datetimepicker();
-                          });
-                         </script>
-                        </div>
-                       </div>
-                        </div>                        
+                       <div class='form-group col-sm-4' id="apellidos_field_box">
+                            <label class="control-label col-sm-3" id="fechaNacimiento_display"> FECHA</label>
+                            <div class='col-sm-9' id="apellidos_input_box">
+                                <input id='txtapellidos' class='form-control input-sm' name='fecha' placeholder="NUMERO DE FACTURA" type='text' value="" maxlength='100' />
+                            </div>
+                        </div>                   
                      
                         <div class='form-group col-sm-7' id="NSS_field_box">
                             <label class="control-label col-sm-2" id="NSS_display">PROVEEDOR</label>
@@ -77,7 +60,7 @@
                         <div class='form-group col-sm-7 pull-left' id="RFC_field_box">
                             <label class="control-label col-sm-2" id="RFC_display">DESCRIPCION</label>
                             <div class='col-sm-10' id="RFC_input_box">
-                                <input id='txtdescripcion' class='form-control input-sm' name='descripcon' placeholder="Descripción" type='text' value="" maxlength='100' />
+                                <input id='txtdescripcion' class='form-control input-sm' name='descripcion' placeholder="Descripción" type='text' value="" maxlength='100' />
 
                             </div>
                         </div>
@@ -104,9 +87,10 @@
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
                                 <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
                             </div>                                              
-                        </div>                                                
-                        <?php echo form_close() ?>
-                        </form>
+                        </div>       
+                        </form>                                         
+                    
+                        
                     </div>
                 </div>
             </div>
