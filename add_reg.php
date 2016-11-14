@@ -14,7 +14,7 @@ catch ( PDOException $e ){
      echo "error al conectar :" . $e->getMessage();
 }
 if ($db_connection) {
-  echo "conexion exitosa";
+
 $Ccostos = $_POST['Ccostos']; 
 $factura = $_POST['factura']; 
 $fecha = $_POST['fecha']; 
@@ -34,6 +34,6 @@ $resultado = mysqli_query($db_connection,$sql);
 			echo "error en la ejecución de la consulta. <br />";
 		}
 }
-echo "¡Gracias! Hemos recibido sus datos.\n";
+header('Location: http://localhost/intranet/caja/'); 
 
 ?>
