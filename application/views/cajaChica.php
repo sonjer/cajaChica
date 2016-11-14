@@ -17,7 +17,7 @@
 
 #div1 table {
     width:1050px;
-    background-color:lightgray;
+    
 }
 
 </style>
@@ -109,8 +109,8 @@
         </div>        
     </div>
     <div id="div1">
-      <table id="scrollArea" border="2" cellspacing=2 cellpadding=4 style="font-size: 9pt" ><tr>
-       <td><font face="verdana"><b>CentroCost</b></font></td>
+      <table class="table" cell><tr>
+       <td><font face="verdana"><b>CeCost</b></font></td>
        <td><font face="verdana"><b>Factura</b></font></td>
        <td><font face="verdana"><b>Fecha</b></font></td>
        <td><font face="verdana"><b>Proveedor</b></font></td>
@@ -132,11 +132,11 @@
       $numero = 0;
       while($row = mysqli_fetch_array($resultado))
       {
-        echo "<tr><td width=\"10%\"><font face=\"verdana\">" . 
+        echo "<tr><td width=\"8%\"><font face=\"verdana\">" . 
 	        $row["Ccostos"] . "</font></td>";
         echo "<td width=\"15%\"><font face=\"verdana\">" . 
 	        $row["factura"] . "</font></td>";
-        echo "<td width=\"8%\"><font face=\"verdana\">" . 
+        echo "<td width=\"10%\"><font face=\"verdana\">" . 
 	        $row["fecha"] . "</font></td>";
         echo "<td width=\"20%\"><font face=\"verdana\">" . 
 	        $row["proveedor"] . "</font></td>";
