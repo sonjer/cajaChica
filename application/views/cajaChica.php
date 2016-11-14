@@ -12,15 +12,16 @@
 #div1 {
     overflow:scroll;
     height:200px;
-    width:1000px;
+    width:1050px;
 }
 
 #div1 table {
-    width:1000px;
+    width:1050px;
     background-color:lightgray;
 }
 
 </style>
+
     <div  id="requisicionID" ng-app="insumosApp" ng-controller="insumosCtrl" class="white-area-content">
         <!-- INICIO CONTROLLER -->
         <div class="row">
@@ -100,16 +101,62 @@
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
                                 <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
                             </div>                                              
-                        </div>       
+                        </div>      
                         </form>                                         
-                    
-                        
                     </div>
                 </div>
             </div>
         </div>        
     </div>
+    <div id="div1">
+      <table id="scrollArea" border="2" cellspacing=2 cellpadding=4 style="font-size: 9pt" ><tr>
+       <td><font face="verdana"><b>CentroCost</b></font></td>
+       <td><font face="verdana"><b>Factura</b></font></td>
+       <td><font face="verdana"><b>Fecha</b></font></td>
+       <td><font face="verdana"><b>Proveedor</b></font></td>
+       <td><font face="verdana"><b>Descripción</b></font></td>
+       <td><font face="verdana"><b>Importe</b></font></td>
+       <td><font face="verdana"><b>iva</b></font></td>
+       <td><font face="verdana"><b>Total</b></font></td></tr>
+     <?php  
 
+      $db_host="localhost";
+      $db_user="root";
+      $db_password= "";
+      $db_name="localicom";
+      $db_table_name="detalle_caja_chica";
+
+      $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+      $sql = "SELECT Ccostos, factura, fecha, proveedor, descripcon, importe, iva, total FROM detalle_caja_chica ";
+      $resultado = mysqli_query($db_connection,$sql);
+      $numero = 0;
+      while($row = mysqli_fetch_array($resultado))
+      {
+        echo "<tr><td width=\"10%\"><font face=\"verdana\">" . 
+	        $row["Ccostos"] . "</font></td>";
+        echo "<td width=\"15%\"><font face=\"verdana\">" . 
+	        $row["factura"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">" . 
+	        $row["fecha"] . "</font></td>";
+        echo "<td width=\"20%\"><font face=\"verdana\">" . 
+	        $row["proveedor"] . "</font></td>";
+        echo "<td width=\"25%\"><font face=\"verdana\">" . 
+	        $row["descripcon"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">" .
+	        $row["importe"] . "</font></td>";
+        echo "<td width=\"6%\"><font face=\"verdana\">" . 
+	        $row["iva"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">" . 
+	        $row["total"]. "</font></td></tr>"; 
+        $numero++;
+     }
+       echo "<tr><td colspan=\"15\"><font face=\"verdana\"><b>Número: " . $numero . 
+         "</b></font></td></tr>";
+       mysqli_free_result($resultado);
+       mysqli_close($db_connection);
+       ?>
+      </table>
+      </div><br>
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-warning height">
@@ -174,62 +221,6 @@
         </div>        
     </div>    
 </div>
-<div id="div1">
-<table id="scrollArea" border="2" cellspacing=2 cellpadding=4 style="font-size: 9pt" ><tr>
-<td><font face="verdana"><b>CentroCost</b></font></td>
-<td><font face="verdana"><b>Factura</b></font></td>
-<td><font face="verdana"><b>Fecha</b></font></td>
-<td><font face="verdana"><b>Proveedor</b></font></td>
-<td><font face="verdana"><b>Descripción</b></font></td>
-<td><font face="verdana"><b>Importe</b></font></td>
-<td><font face="verdana"><b>iva</b></font></td>
-<td><font face="verdana"><b>Total</b></font></td>
-
-</tr>
-
-<?php  
-
-$db_host="localhost";
-$db_user="root";
-$db_password= "";
-$db_name="localicom";
-$db_table_name="detalle_caja_chica";
-
-  $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
- 
-
-  $sql = "SELECT Ccostos, factura, fecha, proveedor, descripcon, importe, iva, total FROM detalle_caja_chica ";
-  $resultado = mysqli_query($db_connection,$sql);
-  $numero = 0;
-  while($row = mysqli_fetch_array($resultado))
-  {
-    echo "<tr><td width=\"10%\"><font face=\"verdana\">" . 
-	    $row["Ccostos"] . "</font></td>";
-    echo "<td width=\"15%\"><font face=\"verdana\">" . 
-	    $row["factura"] . "</font></td>";
-    echo "<td width=\"8%\"><font face=\"verdana\">" . 
-	    $row["fecha"] . "</font></td>";
-    echo "<td width=\"20%\"><font face=\"verdana\">" . 
-	    $row["proveedor"] . "</font></td>";
-    echo "<td width=\"25%\"><font face=\"verdana\">" . 
-	    $row["descripcon"] . "</font></td>";
-    echo "<td width=\"8%\"><font face=\"verdana\">" .
-	    $row["importe"] . "</font></td>";
-    echo "<td width=\"8%\"><font face=\"verdana\">" . 
-	    $row["iva"] . "</font></td>";
-    echo "<td width=\"8%\"><font face=\"verdana\">" . 
-	    $row["total"]. "</font></td></tr>"; 
- 
-    $numero++;
-  }
-  echo "<tr><td colspan=\"15\"><font face=\"verdana\"><b>Número: " . $numero . 
-      "</b></font></td></tr>";
-  
-  mysqli_free_result($resultado);
-  mysqli_close($db_connection);
-?>
-</table>
-</div><br>
 <blockquote>
   <p>Solo se puede eliminar al usuario siempre y cuando no tenga asignado Clientes o CeCo y no haya requisitado.</p>
 </blockquote>

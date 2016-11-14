@@ -8,7 +8,7 @@ $db_table_name="detalle_caja_chica";
 
  try  { $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
  
-	echo 'conexion correcta';
+	
 }
 catch ( PDOException $e ){
      echo "error al conectar :" . $e->getMessage();
@@ -28,12 +28,14 @@ $sql = ("insert into detalle_caja_chica ( Ccostos, factura, fecha, proveedor, de
  values ('$Ccostos', '$factura', '$fecha', '$proveedor', '$descripcion', '$importe', '$iva', '$Total')");
 $resultado = mysqli_query($db_connection,$sql);
 		if ($resultado) {
-			echo "perfil almacenado. <br />";
+		echo '<script language="javascript">alert("EGRESO DE CAJA GUARDADO CORRECTAMENTE");
+		window.location.href="http://localhost/intranet/caja/";
+        </script>'; 
 		}
 		else {
 			echo "error en la ejecución de la consulta. <br />";
 		}
 }
-header('Location: http://localhost/intranet/caja/'); 
+
 
 ?>
