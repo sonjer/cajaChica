@@ -1,0 +1,32 @@
+        <scrollable-table watch="visibleProjects">
+            <div class="table-responsive" ng-init="init()">
+                <table class="table table-bordered table-over">
+                    <tr class="active">
+                        <th>Consecutivo</th>
+                        <th>Clave</th>
+                        <th>Descripción</th>
+                        <th>Cant.</th>
+                        <th>Unidad</th>
+                        <th>Fecha</th>
+                    </tr>
+                    <tbody>
+                        <tr ng-repeat="x in detalles" class="default">
+                            <td>{{ x.claveCompuesta }}</td>
+                            <td>{{ x.idInsumo }}</td>
+                            <td>{{ x.descripcion }}</td>
+                            <td>{{ x.cantidad }}</td>
+                            <td>{{ x.unidad }}</td>
+                            <td>{{ x.fecha | date : "dd/MM/y" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </scrollable-table>
+        <hr>
+        <div class='row'>
+            <div class="col-sm-12">
+                <button class="btn btn-primary btn-sm" ng-click='generar(1)'>PDF <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+                <button class="btn btn-info btn-sm" ng-click='generar(2)'>XLS <i class="fa fa-file-excel-o" aria-hidden="true"></i></button>
+                <button class="btn btn-warning btn-sm" ng-click='generar(3)'>Imprimir <i class="fa fa-print" aria-hidden="true"></i></button>
+            </div>                      
+        </div>        

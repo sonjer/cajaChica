@@ -1,3 +1,4 @@
+  
 <link href="<?php echo base_url(); ?>styles/ui-grid.min.css" rel="stylesheet" type="text/css">
 
 <style>
@@ -36,7 +37,20 @@
                     <div class="panel-body">
                        <div class="row">
                      
-                         <form method="post" action="add_reg.php">                  
+                         <form method="post" action="add_reg.php">  
+                                
+
+    <div class="col-sm-6" style="height:130px;">
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker4'>
+                <input type='text' class="form-control" data-format="yyyy-MM-dd" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
                         <div class="col-xs-2">
                          <div class="input-group">
                           <div class="input-group-btn">
@@ -101,7 +115,8 @@
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
                                 <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
                             </div>                                              
-                        </div>      
+                        </div> 
+                             
                         </form>                                         
                     </div>
                 </div>
@@ -227,90 +242,10 @@
 <script src="<?php echo base_url(); ?>bootstrap/js/ui-grid.min.js"></script>
  <script src=" https://framework-gb.cdn.gob.mx/assets/scripts/jquery-ui-datepicker.js"></script>
  <script src="<?php echo base_url(); ?>scripts/custom/inputmask.js"></script>
-<script>
- /* BUSQUEDA DE CLIENTES Y CECO : REQUISITORES Y RESIDENTES */
-function NumAndTwoDecimals(e , field) {
-    var val = field.value;
-    var re = /^([0-9]+[\.]?[0-9]?[0-9]?|[0-9]+)$/g;
-    var re1 = /^([0-9]+[\.]?[0-9]?[0-9]?|[0-9]+)/g;
-    if (re.test(val)) {
-        //do something here
-
-    } else {
-        val = re1.exec(val);
-        if (val) {
-            field.value = val[0];
-        } else {
-            field.value = "";
-        }
-    }
-}
-
-$('#txtNSS').keyup(function() {
-    var $th = $(this);
-    $th.val( $th.val().replace(/[^a-zA-Z0-9]/g, function(str) {  return ''; } ) );
-});
-
-//$("#txtLugarNacimiento").mask("PEPF910227HVZRRR07");
-//$("#txtCURP").inputmask({ mask: function () { /* do stuff */ return ["AAAA999999AAAAAA99"]; }});
-$("#txtCURP").inputmask({ mask: "AAAA999999AAAAAA99"});
-
-$("#txtCURP").blur(function(){
-    var $th = $(this);
-    var validation = validaCURP2($th.val());
-    if(validation == false ){
-
-    }
-});
-
-function validaCURP2(curp){
-    var segRaiz = "";
-    var digVer  = "";
-    var lngSuma      = 0.0;
-    var lngDigito    = 0.0;
-    var strDigitoVer = "";
-    var intFactor    = new Array(17);
-    var chrCaracter  = "0123456789ABCDEFGHIJKLMN�OPQRSTUVWXYZ";
-
-    segRaiz = curp.substring(0,17);
-    digVer  = curp.substring(17,18);
-    
-    for(var i=0; i<17; i++)
-    {
-        for(var j=0;j<37; j++)
-        {
-            if(segRaiz.substring(i,i+1)==chrCaracter.substring(j,j+1))
-            {               
-                intFactor[i]=j;
-            }
-        }
-    }
-    
-    for(var k = 0; k < 17; k++)
-    {
-        lngSuma= lngSuma + ((intFactor[k]) * (18 - k));
-    }
-    
-    lngDigito= (10 - (lngSuma % 10));
-    
-    if(lngDigito==10)
-    {
-        lngDigito=0;
-    }
-
-    var reg = /[A-Z]{4}\d{6}[HM][A-Z]{2}[B-DF-HJ-NP-TV-Z]{3}[A-Z0-9][0-9]/;
-    if(curp.search(reg))
-    {
-        alert("La curp: " + curp + " no es valida, verifiqu� ");
-        return false;
-        
-    }
-    
-    if(!(parseInt(lngDigito)==parseInt(digVer)))
-    {
-        alert("La curp: " + curp + " no es valida, revis� el Digito Verificador (" +  lngDigito + ")");
-        return false;
-    }
-    return true;
-}
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker4').datetimepicker({
+      pickTime: false
+    });
+  });
 </script>

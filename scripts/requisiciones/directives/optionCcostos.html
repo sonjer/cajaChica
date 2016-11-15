@@ -1,0 +1,26 @@
+				<div class="panel-body">
+					<fieldset id = 'field1' ng-controller="CcostosCtrl">								
+						<div class='row'>
+							<div class='col-sm-6'>    
+								<div class='form-group'>
+									<label for="user_title">Centro de Costos</label>
+									<input type="text" id="idInsumo" class="form-control input-sm" ng-model='idCentroCostos' placeholder="Clave del Ccostos" maxlength=9 size=9 required disable>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class='form-group'>
+									<label for="user_title">Cliente</label>
+									<input type="text" id="idInsumo" class="form-control input-sm" ng-model='idCliente' placeholder="Clave del Cliene" maxlength=9 size=9 required disable>
+								</div>								
+							</div>
+						</div>
+						<div class='row'>
+							<div class="col-sm-2">
+								<button class="btn btn-primary btn-sm" ng-click='cargarCentroCostos()' >Consultar <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+							</div>
+							<div class="col-sm-10">
+								Para generar un reporte escriba la clave en el campo de texto, deje en blanco para especificar TODOS.
+							</div> 
+						</div>
+					</fieldset>				
+				</div>							               

@@ -1,0 +1,35 @@
+				<div class="panel-body">
+					<fieldset id = 'field1' ng-controller="OpcionesCtrl">						
+						<div class='row'>
+							<div class='col-sm-6'>    
+								<div class='form-group'>
+									<label for="user_title">Fecha Inicial</label>
+									<input type="text" id="fechaInicio" ng-click="setfechaInicio()" class="form-control input-sm datepicker" placeholder="Date" maxlength=5 size=5 required disable>
+								</div>
+							</div>
+							<div class='col-sm-6'>
+								<div class='form-group'>
+									<label for="user_firstname">Fecha Final</label>
+									<input type="text" id="fechaFin" ng-click="setfechaFin()" class="form-control input-sm datepicker" placeholder="Date" maxlength=5 size=5 required disable>
+								</div>
+							</div>
+						<!--	<div class='col-sm-4'>
+								<div class='form-group'>
+									<label for="user_firstname">Estado</label>
+									<select class="form-control input-sm" id="sel1" ng-model='op.idEstado'>
+										<option value="1">Por Surtir</option>
+										<option value="2">Parcialmente Surtida</option>
+										<option value="3">Surtida</option>
+										<option value="4">Cancelada</option>
+									</select>
+								</div>
+							</div>
+							-->						
+						</div>
+						<div class='row'>
+							<div class="col-sm-12">
+								<button class="btn btn-primary btn-sm" ng-click='agregar()' ui-sref="getFecha()">Consultar <i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>
+							</div>               
+						</div>
+					</fieldset>				
+				</div>						               
