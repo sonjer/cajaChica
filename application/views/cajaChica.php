@@ -108,8 +108,8 @@
             </div>
         </div>        
     </div>
-    <div id="div1">
-      <table class="table" cell><tr>
+    <div id="div1" >
+      <table class="table" cell><tr class="info">
        <td><font face="verdana"><b>CeCost</b></font></td>
        <td><font face="verdana"><b>Factura</b></font></td>
        <td><font face="verdana"><b>Fecha</b></font></td>
