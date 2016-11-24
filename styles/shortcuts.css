@@ -180,3 +180,8 @@ background-image: none;
 .negrita {
   font-weight: bold;
 }
+/* STATUS EN TABLA */
+.COLOCADA {
+    color : red;
+    font-weight: bold;
+}

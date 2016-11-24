@@ -37,17 +37,17 @@
                        <div class="row">
                      
                          <form method="post" action="add_reg.php">                  
-                        <div class="col-xs-2">
+                        <div class="col-xs-3 col-sm-3">
                          <div class="input-group">
                           <div class="input-group-btn">
-                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CeCo <span class="caret"></span></button>
+                           <button type="button" class="btn btn-default dropdown-toggle input-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CeCo <span class="caret"></span></button>
                            <ul class="dropdown-menu">
                             <li><a href="#">LG000</a></li>
                             <li><a href="#">LG001</a></li>
                             <li><a href="#">LG002</a></li>
                            </ul>
                           </div><!-- /btn-group -->
-                         <input type="text" class="form-control" aria-label="..." name = "Ccostos" value=""  >
+                         <input type="text" class="form-control input-sm" aria-label="..." name = "Ccostos" value=""  >
                         </div><!-- /input-group -->
                        </div><!-- /.col-xs-2 -->
 
@@ -66,38 +66,38 @@
                         </div>                   
                      
                         <div class='form-group col-sm-7' id="NSS_field_box">
-                            <label class="control-label col-sm-2" id="NSS_display">PROVEEDOR</label>
-                            <div class='col-sm-10' id="NSS_input_box">
+                            <label class="control-label col-sm-3" id="NSS_display">PROVEEDOR</label>
+                            <div class='col-sm-9' id="NSS_input_box">
                                     <input id='txtLproveedor' class='form-control input-sm' name='proveedor' placeholder="Nombre Proveedor" type='text' value="" maxlength='100' />
                             </div>
                         </div>
+                        <div class='form-group col-sm-4 pull-right' id="RFC_field_box">
+                            <label class="control-label col-sm-3" id="RFC_display">IMPORTE</label>
+                            <div class='col-sm-6' id="RFC_input_box">
+                                 <input id='txtLimporte' class='form-control input-sm' name='importe'  type='text' value="" maxlength='100' />
+                            </div>
+                        </div><br>
                         <div class='form-group col-sm-7 pull-left' id="RFC_field_box">
-                            <label class="control-label col-sm-2" id="RFC_display">DESCRIPCION</label>
-                            <div class='col-sm-10' id="RFC_input_box">
+                            <label class="control-label col-sm-3" id="RFC_display">DESCRIPCION</label>
+                            <div class='col-sm-9' id="RFC_input_box">
                                 <input id='txtdescripcion' class='form-control input-sm' name='descripcion' placeholder="Descripción" type='text' value="" maxlength='100' />
 
                             </div>
                         </div>
-                        <div class='input-group col-sm-4' id="RFC_field_box">
-                            <label class="control-label col-sm-3" id="RFC_display">IMPORTE</label>
-                            <div class='col-sm-6' id="NSS_input_box">
-                                 <input id='txtLimporte' class='form-control input-sm' name='importe'  type='text' value="" maxlength='100' />
-                            </div>
-                        </div><br>
-                        <div class='input-group col-sm-4' id="RFC_field_box">
+                        <div class='form-group col-sm-4 pull-right' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">I.V.A</label>
-                            <div class='col-sm-6' id="NSS_input_box">
+                            <div class='col-sm-6' id="RFC_input_box">
                                  <input id='txtLimporte' class='form-control input-sm' name='iva'  type='text' value="" maxlength='100' />
                             </div>
-                        </div><br>
-                        <div class='input-group col-sm-7' id="RFC_field_box">
+                        </div>
+                        <div class='form-group col-sm-4 pull-right' id="RFC_field_box">
                             <label class="control-label col-sm-3" id="RFC_display">MONTO TOTAL</label>
-                            <div class='col-sm-3' id="NSS_input_box">
+                            <div class='col-sm-6' id="RFC_input_box">
                                  <input id='txtLimporte' class='form-control input-sm' name='Total'  type='text' value="" maxlength='100' />
                             </div>
-                        </div><br>
+                        </div>
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-8 pull-center ">
                                 <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
                                 <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
                             </div>                                              
@@ -132,25 +132,25 @@
       $numero = 0;
       while($row = mysqli_fetch_array($resultado))
       {
-        echo "<tr><td width=\"8%\"><font face=\"verdana\">" . 
+        echo "<tr><td width=\"8%\"><font face=\"verdana\">" .
 	        $row["Ccostos"] . "</font></td>";
-        echo "<td width=\"15%\"><font face=\"verdana\">" . 
+        echo "<td width=\"15%\"><font face=\"verdana\">" .
 	        $row["factura"] . "</font></td>";
-        echo "<td width=\"10%\"><font face=\"verdana\">" . 
+        echo "<td width=\"13%\"><font face=\"verdana\">" .
 	        $row["fecha"] . "</font></td>";
-        echo "<td width=\"20%\"><font face=\"verdana\">" . 
+        echo "<td width=\"20%\"><font face=\"verdana\">" .
 	        $row["proveedor"] . "</font></td>";
-        echo "<td width=\"25%\"><font face=\"verdana\">" . 
+        echo "<td width=\"25%\"><font face=\"verdana\">" .
 	        $row["descripcon"] . "</font></td>";
-        echo "<td width=\"8%\"><font face=\"verdana\">" .
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
 	        $row["importe"] . "</font></td>";
-        echo "<td width=\"6%\"><font face=\"verdana\">" . 
+        echo "<td width=\"6%\"><font face=\"verdana\">" .
 	        $row["iva"] . "</font></td>";
-        echo "<td width=\"8%\"><font face=\"verdana\">" . 
-	        $row["total"]. "</font></td></tr>"; 
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
+	        $row["total"]. "</font></td></tr>";
         $numero++;
      }
-       echo "<tr><td colspan=\"15\"><font face=\"verdana\"><b>Número: " . $numero . 
+       echo "<tr><td colspan=\"15\"><font face=\"verdana\"><b>Registros: " . $numero . 
          "</b></font></td></tr>";
        mysqli_free_result($resultado);
        mysqli_close($db_connection);

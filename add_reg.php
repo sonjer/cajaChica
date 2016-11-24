@@ -25,11 +25,11 @@ $iva = $_POST['iva'];
 $Total= $_POST['Total']; 
 // process form
 $sql = ("insert into detalle_caja_chica ( Ccostos, factura, fecha, proveedor, descripcon, importe, iva, Total)
- values ('$Ccostos', '$factura', '$fecha', '$proveedor', '$descripcion', '$importe', '$iva', '$Total')");
+ values ('$Ccostos', '$factura', '$fecha', '$proveedor', '$descripcion','$importe', '$iva', '$Total')");
 $resultado = mysqli_query($db_connection,$sql);
 		if ($resultado) {
 		echo '<script language="javascript">alert("EGRESO DE CAJA GUARDADO CORRECTAMENTE");
-		window.location.href="http://localhost/intranet/caja/";
+		window.location.href="http://localhost/intranet/caja";
         </script>'; 
 		}
 		else {
@@ -37,5 +37,3 @@ $resultado = mysqli_query($db_connection,$sql);
 		}
 }
 
-
-?>

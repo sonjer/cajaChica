@@ -6,15 +6,15 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'iicom.mx',
+/*	'hostname' => 'iicom.mx',
 	'username' => 'heyzues',
 	'password' => '3631626231',
-/*	
+*/	
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'mysql',
-*/	
-	'database' => 'icomdb',
+	'password' => '',
+	
+	'database' => 'localicom',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
