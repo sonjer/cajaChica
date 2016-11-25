@@ -38,8 +38,9 @@ class Catalogo_Model extends CI_Model {
         }
      }
      /************************** INSUMOS **************************************************************************/
-     public function jsonGetInsumos($idInsumo) {
-         if($idInsumo == 'idInsumos') :
+
+      public function jsonGetInsumos($idInsumo) {
+         if($idInsumo == 'idInsumo') :
             $q = $this -> db -> query("SELECT * FROM insumos;");
          else :
             $q = $this -> db -> query("SELECT * FROM insumos where idInsumo = ?", $idInsumo);
@@ -54,19 +55,8 @@ class Catalogo_Model extends CI_Model {
      }
 
      /*Get DATA*/
-     public function jsonGetInsumos($idInsumo) {
-         if($idCentroCostos == 'idInsumo') :
-            $q = $this -> db -> query("SELECT * FROM insumos;");
-         else :
-            $q = $this -> db -> query("SELECT * FROM insumos where idInsumo = ?", $idInsumo);
-         endif;
-        
-        if ($q -> num_rows() > 0) {
-            foreach ($q->result() as $row) {
-                $data[] = $row;
-            }
-            return $data;
-        }
+     public function getInsumos(){
+        return $this->db->query("SELECT * FROM insumos;");
      }
 
     /* GET 1 ROW */
@@ -79,7 +69,6 @@ class Catalogo_Model extends CI_Model {
             return $data;
         }
      }
-
 
 
 

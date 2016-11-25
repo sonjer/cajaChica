@@ -22,15 +22,23 @@
 								<label for="">Descripcion:</label>
 								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[1].filters[0].term" required>
 							</div>
-							<div class="form-group float-label-control col-sm-5">
+						    <div class="form-group float-label-control col-sm-1">
+								<label for="">Unidad:</label>
+								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+							</div>
+								<div class="form-group float-label-control col-sm-1">
+								<label for="">Tipo:</label>
+								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+							</div>
+							<div class="form-group float-label-control col-sm-1">
 								<label for="">Clase:</label>
 								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
 							</div>
-							<div class="form-group float-label-control col-sm-5">
+							<div class="form-group float-label-control col-sm-1">
 								<label for="">Grupo:</label>
 								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
 							</div>
-							<div class="form-group float-label-control col-sm-5">
+							<div class="form-group float-label-control col-sm-1">
 								<label for="">Subg:</label>
 								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
 							</div>
@@ -89,8 +97,8 @@
 						</div>
 					</div>
 						<div class="form-group">
-					    <label for="name-in" class="col-md-3 label-heading">Subg</label>
-						<div class="col-md-9">
+					    <label for="name-in" class="col-md-3 label-heading">SubgRU</label>
+						<div class="col-md-3">
                             <input type="text" class="form-control input-sm" ng-model="insumo.Subg" required>
 						</div>
 					</div>

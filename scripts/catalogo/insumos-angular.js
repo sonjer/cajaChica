@@ -17,6 +17,9 @@ app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory,
         centroCostosFactory.data.idInsumo = $scope.ceco.idInsumo;
         centroCostosFactory.data.descripcion = $scope.ceco.descripcion;
         centroCostosFactory.data.unidad = $scope.ceco.unidad;
+        centroCostosFactory.data.id_Clase = $scope.ceco.id_Clase;
+        centroCostosFactory.data.id_Grupo = $scope.ceco.id_Grupo;
+        centroCostosFactory.data.id_Subg = $scope.ceco.id_Subg;
         $scope.guardarRegistro();
        // print_r(centroCostosFactory.data);
     }
@@ -35,7 +38,10 @@ app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory,
             //idInsumo, descripcion, unidad
             { field: 'idInsumo', displayName: 'Clave', visible: true }, //0
             { field: 'descripcion', visible: true }, //1
-            { field: 'unidad',  displayName: 'Cliente', visible: true }, //1
+            { field: 'unidad',  displayName: 'Unidad', visible: true }, //2
+            { field: 'id_Clase',  displayName: 'Clase', visible: true }, //3
+            { field: 'id_Grupo',  displayName: 'Grupo', visible: true }, //4
+            { field: 'id_Subg',  displayName: 'SubGrupo', visible: true }, //5
         ],
 		onRegisterApi: function(gridApi){
             $scope.gridApi = gridApi;
@@ -54,7 +60,7 @@ app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory,
            // $scope.ceco = [];
             $scope.ceco = rowItem[0];
             if(rowItem[0]['idInsumo']){
-            $scope.titulo = 'Modificar Centro Costos';
+            $scope.titulo = 'Modificar Insumo';
             $("#idInsumo").prop('disabled', true);
             $("#modal-footer").html('<button type="button" ng-click="cancelar()" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>'
 					         + '<button type="button" onclick="eliminarRegistro()" class="btn btn-danger btn-sm">Eliminar</button>'
@@ -65,7 +71,7 @@ app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory,
 
         $scope.openModal = function(){
             $scope.ceco = [];
-            $scope.titulo = 'Registrar nuevo Centro Costos';
+            $scope.titulo = 'Registrar nuevo Insumo';
             $("#modal-footer").html('<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>'
 					         + '<input type="submit" class="btn btn-primary btn-sm" value="Guardar" />');
             $("#memberModal").modal();

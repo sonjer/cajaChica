@@ -28,7 +28,7 @@ class Catalogo extends CI_Controller {
         $this -> template -> loadData("activeLink", array("catalogo" => array("insumos" => 1)));
         $this->template->loadExternal('<script type="text/javascript" src="' . base_url() . 'scripts/catalogo/insumos-angular.js" /></script>'.
                                       '<script type="text/javascript" src="' . base_url() . 'bootstrap/js/angular-ui-router.min.js" /></script>');
-        $data['insumos'] = $this->catalogo_model->getInsumos();
+        $data['data'] = $this->catalogo_model->getInsumos();
         $this->template->loadContent("catalogo/insumos.php", $data);
     } 
     /********************************************** SELECCION ********************************************************************/
