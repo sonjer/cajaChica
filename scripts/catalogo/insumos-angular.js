@@ -1,21 +1,22 @@
 var app = angular.module('centroCostosApp', ['ui.router', 'ui.grid', 'ui.grid.selection']);
-app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, $state) {
+app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory, $state) {
 	$scope.filterTerm;
     $scope.ceco;
 
     $scope.loadData = function () {
-		$http.get(urlCatalogo + 'getCentroCostos/' + centroCostosFactory.data.idCentroCostos).success(function(data, status, headers, config) {
+		$http.get(urlCatalogo + 'getInsumos/' + centroCostosFactory.data.idInsumo).success(function(data, status, headers, config) {
 			$scope.usuarios.data  = data['data'];
             $scope.gridApi.core.refresh();
+         //   print_r($scope.usuarios.data);
 	     }).error(function(data, status, headers, config) {
                 // log` error
 	    });	
     }
 
     $scope.asignaDatos = function (){
-        centroCostosFactory.data.idCentroCostos = $scope.ceco.idCentroCostos;
+        centroCostosFactory.data.idInsumo = $scope.ceco.idInsumo;
         centroCostosFactory.data.descripcion = $scope.ceco.descripcion;
-        centroCostosFactory.data.IdCliente = $scope.ceco.IdCliente;
+        centroCostosFactory.data.unidad = $scope.ceco.unidad;
         $scope.guardarRegistro();
        // print_r(centroCostosFactory.data);
     }
@@ -31,10 +32,10 @@ app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, 
      	modifierKeysToMultiSelect: true,
      	multiSelect: true,
         columnDefs: [
-            //idCentroCostos, descripcion, IdCliente
-            { field: 'idCentroCostos', displayName: 'Clave', visible: true }, //0
+            //idInsumo, descripcion, unidad
+            { field: 'idInsumo', displayName: 'Clave', visible: true }, //0
             { field: 'descripcion', visible: true }, //1
-            { field: 'IdCliente',  displayName: 'Cliente', visible: true }, //1
+            { field: 'unidad',  displayName: 'Cliente', visible: true }, //1
         ],
 		onRegisterApi: function(gridApi){
             $scope.gridApi = gridApi;
@@ -52,9 +53,9 @@ app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, 
         $scope.myClickHandler = function(rowItem) {
            // $scope.ceco = [];
             $scope.ceco = rowItem[0];
-            if(rowItem[0]['idCentroCostos']){
+            if(rowItem[0]['idInsumo']){
             $scope.titulo = 'Modificar Centro Costos';
-            $("#idCentroCostos").prop('disabled', true);
+            $("#idInsumo").prop('disabled', true);
             $("#modal-footer").html('<button type="button" ng-click="cancelar()" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>'
 					         + '<button type="button" onclick="eliminarRegistro()" class="btn btn-danger btn-sm">Eliminar</button>'
                              + '<input type="submit" class="btn btn-primary btn-sm" value=" Modificar" />');                             
@@ -68,7 +69,7 @@ app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, 
             $("#modal-footer").html('<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>'
 					         + '<input type="submit" class="btn btn-primary btn-sm" value="Guardar" />');
             $("#memberModal").modal();
-            $("#idCentroCostos").prop('disabled', false);
+            $("#idInsumo").prop('disabled', false);
         }
 
         $scope.set_flashdata = function(message, priority){
@@ -105,8 +106,8 @@ app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, 
 	}
 
 	$scope.eliminar = function(id) {
-        centroCostosFactory.data.idCentroCostos = $scope.ceco.idCentroCostos;  
-		$http.get(urlCatalogo + 'eliminaCentroCostos/' + centroCostosFactory.data.idCentroCostos).success(function(data) {
+        centroCostosFactory.data.idInsumo = $scope.ceco.idInsumo;  
+		$http.get(urlCatalogo + 'eliminaInsumos/' + centroCostosFactory.data.idInsumo).success(function(data) {
 			$scope.set_flashdata('Se elimino la partida correctamente!', 'danger');
             	$('#memberModal').modal('hide');  
             	location.reload();
@@ -127,16 +128,19 @@ app.controller('centroCostosCtrl', function($scope, $http, centroCostosFactory, 
 app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('listado', {
 		url : '',
-		controller : 'centroCostosCtrl'
+		controller : 'centroCostosCtrl2'
 	}), $urlRouterProvider.otherwise('listado');
 });
 
 app.factory('centroCostosFactory', function(){
 	return {
 		data : {
-			idCentroCostos : 'idCentroCostos',
-			descripcion : '--',
-			IdCliente : '--',
+			idInsumo : 'idInsumo',
+			descripcion : 'descripcion',
+			unidad : 'unidad',
+            id_Clase: 'id_Clase',
+            id_Grupo: 'id_Grupo',
+            id_Subg: 'id_Subg',
 		},
 	};
 });

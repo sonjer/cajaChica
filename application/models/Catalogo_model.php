@@ -38,7 +38,47 @@ class Catalogo_Model extends CI_Model {
         }
      }
      /************************** INSUMOS **************************************************************************/
+     public function jsonGetInsumos($idInsumo) {
+         if($idInsumo == 'idInsumos') :
+            $q = $this -> db -> query("SELECT * FROM insumos;");
+         else :
+            $q = $this -> db -> query("SELECT * FROM insumos where idInsumo = ?", $idInsumo);
+         endif;
+        
+        if ($q -> num_rows() > 0) {
+            foreach ($q->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+     }
 
+     /*Get DATA*/
+     public function jsonGetInsumos($idInsumo) {
+         if($idCentroCostos == 'idInsumo') :
+            $q = $this -> db -> query("SELECT * FROM insumos;");
+         else :
+            $q = $this -> db -> query("SELECT * FROM insumos where idInsumo = ?", $idInsumo);
+         endif;
+        
+        if ($q -> num_rows() > 0) {
+            foreach ($q->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+     }
+
+    /* GET 1 ROW */
+     public function jsonGetRowInsumos($idInsumo) {
+        $q = $this -> db -> query("SELECT * FROM insumos WHERE idInsumo = ?", $idInsumo);
+        if ($q -> num_rows() > 0) {
+            foreach ($q->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+     }
 
 
 
@@ -52,6 +92,13 @@ class Catalogo_Model extends CI_Model {
         }
     }
 
+    function insertInsumos($obj){
+       // $this->output->enable_profiler(TRUE);
+        if($this->db->insert('insumos', $obj)) {
+            return 'insertado';
+        }
+    }
+
      /********************************************** ACTUALIZACION ********************************************************************/
     function updateCentroCostos($obj){
        // $this->output->enable_profiler(TRUE);
@@ -61,11 +108,23 @@ class Catalogo_Model extends CI_Model {
             return 'actualizado';
         }
     }
+        function updateInsumos($obj){
+       // $this->output->enable_profiler(TRUE);
+        extract($this->compras->arrayCastRecursive($obj));
+        $this->db->where('idInsumo', $idInsumo);
+        if($this->db->update('insumos', $obj)){
+            return 'actualizado';
+        }
+    }
 
      /********************************************** ELIMINAR ********************************************************************/
     public function deleteCentroCostos($id){
      //   $this->output->enable_profiler(TRUE);
         $this->db->where("idCentroCostos", $id)->delete("centroCostos");
+    }
+        public function deleteInsumos($id){
+     //   $this->output->enable_profiler(TRUE);
+        $this->db->where("idinsumo", $id)->delete("insumos");
     }
 
      /********************************************** Fin Controller ********************************************************************/
