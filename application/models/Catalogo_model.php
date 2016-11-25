@@ -56,9 +56,20 @@ class Catalogo_Model extends CI_Model {
 
      /*Get DATA*/
      public function getInsumos(){
-        return $this->db->query("SELECT * FROM insumos;");
+        return $this->db->query("SELECT * FROM unidadmedida;");
      }
-
+     public function getTiposProd(){
+        return $this->db->query("SELECT * FROM tipos_producto;");
+     }
+     public function getClaseProd(){
+        return $this->db->query("SELECT * FROM clase_producto;");
+     }
+     public function getGrupoProd(){
+        return $this->db->query("SELECT * FROM grupo_producto;");
+     }
+     public function getSubgProd(){
+        return $this->db->query("SELECT * FROM subgrupo_producto;");
+     }
     /* GET 1 ROW */
      public function jsonGetRowInsumos($idInsumo) {
         $q = $this -> db -> query("SELECT * FROM insumos WHERE idInsumo = ?", $idInsumo);
@@ -113,7 +124,7 @@ class Catalogo_Model extends CI_Model {
     }
         public function deleteInsumos($id){
      //   $this->output->enable_profiler(TRUE);
-        $this->db->where("idinsumo", $id)->delete("insumos");
+        $this->db->where("idInsumo", $id)->delete("insumos");
     }
 
      /********************************************** Fin Controller ********************************************************************/

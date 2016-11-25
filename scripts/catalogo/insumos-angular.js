@@ -36,12 +36,13 @@ app.controller('centroCostosCtrl2', function($scope, $http, centroCostosFactory,
      	multiSelect: true,
         columnDefs: [
             //idInsumo, descripcion, unidad
-            { field: 'idInsumo', displayName: 'Clave', visible: true }, //0
-            { field: 'descripcion', visible: true }, //1
-            { field: 'unidad',  displayName: 'Unidad', visible: true }, //2
-            { field: 'id_Clase',  displayName: 'Clase', visible: true }, //3
-            { field: 'id_Grupo',  displayName: 'Grupo', visible: true }, //4
-            { field: 'id_Subg',  displayName: 'SubGrupo', visible: true }, //5
+            { field: 'idTipo', displayName: 'Tipo', visible: true }, //0
+            { field: 'idClase', displayName: 'Clase', visible: true }, //1
+            { field: 'idGrupo',  displayName: 'Grupo', visible: true }, //2
+            { field: 'idSubg',  displayName: 'SubG', visible: true }, //3
+            { field: 'idInsumo',  displayName: 'Clave', visible: true }, //4
+            { field: 'descripcion',  visible: true }, //5
+            { field: 'unidad',  displayName: 'Unidad', visible: true }, //6
         ],
 		onRegisterApi: function(gridApi){
             $scope.gridApi = gridApi;
@@ -141,12 +142,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 app.factory('centroCostosFactory', function(){
 	return {
 		data : {
+            idTipo: 'idTipo',
+            idClase: 'idClase',
+            idGrupo: 'idGrupo',
+            idSubg: 'idSubg',
 			idInsumo : 'idInsumo',
 			descripcion : 'descripcion',
 			unidad : 'unidad',
-            id_Clase: 'id_Clase',
-            id_Grupo: 'id_Grupo',
-            id_Subg: 'id_Subg',
+
 		},
 	};
 });

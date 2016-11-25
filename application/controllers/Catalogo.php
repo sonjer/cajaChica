@@ -28,9 +28,14 @@ class Catalogo extends CI_Controller {
         $this -> template -> loadData("activeLink", array("catalogo" => array("insumos" => 1)));
         $this->template->loadExternal('<script type="text/javascript" src="' . base_url() . 'scripts/catalogo/insumos-angular.js" /></script>'.
                                       '<script type="text/javascript" src="' . base_url() . 'bootstrap/js/angular-ui-router.min.js" /></script>');
-        $data['data'] = $this->catalogo_model->getInsumos();
+        $data['unidad'] = $this->catalogo_model->getInsumos();
+        $data['Tipo'] = $this->catalogo_model->getTiposProd();
+        $data['Clase'] = $this->catalogo_model->getClaseProd();
+        $data['Grupo'] = $this->catalogo_model->getGrupoProd();
+        $data['Subg'] = $this->catalogo_model->getSubgProd();
         $this->template->loadContent("catalogo/insumos.php", $data);
     } 
+    
     /********************************************** SELECCION ********************************************************************/
     function getCentroCostos($idCentroCostos){  
         $data['data'] = $this->catalogo_model->jsonGetCentroCostos($idCentroCostos);

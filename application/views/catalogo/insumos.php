@@ -16,31 +16,56 @@
 					<div class="panel-body">
 							<div class="form-group float-label-control col-sm-2">
 								<label for="">Clave:</label>
-								<input type="text" class="form-control input-sm" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[0].filters[0].term" required>
+								<input type="text" class="form-control input-sm" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[4].filters[0].term" required>
 							</div>
-							<div class="form-group float-label-control col-sm-5">
+							<div class="form-group float-label-control col-sm-4">
 								<label for="">Descripcion:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[1].filters[0].term" required>
+								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[5].filters[0].term" required>
 							</div>
-						    <div class="form-group float-label-control col-sm-1">
+							<div class="form-group float-label-control col-sm-2">
 								<label for="">Unidad:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+								<select class="form-control input-sm" ng-model="gridApi.grid.columns[6].filters[0].term">
+									<option value="">Seleccionar</option>
+									<?php foreach($unidad->result() as $u) : ?>
+									<option value="<?php echo $u->unidad ?>"><?php echo $u->unidad ?></option>
+									<?php endforeach; ?>
+								</select>
 							</div>
-								<div class="form-group float-label-control col-sm-1">
+							<div class="form-group float-label-control col-sm-2">
 								<label for="">Tipo:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+								<select class="form-control input-sm" ng-model="gridApi.grid.columns[0].filters[0].term">
+									<option value="">Seleccionar</option>
+									<?php foreach($Tipo->result() as $u) : ?>
+									<option value="<?php echo $u->idTipo ?>"><?php echo $u->idTipo .' - '. $u->DescTipo?></option>
+									<?php endforeach; ?>
+								</select>
 							</div>
-							<div class="form-group float-label-control col-sm-1">
+							<div class="form-group float-label-control col-sm-2">
 								<label for="">Clase:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+								<select class="form-control input-sm" ng-model="gridApi.grid.columns[1].filters[0].term">
+									<option value="">Seleccionar</option>
+									<?php foreach($Clase->result() as $u) : ?>
+									<option value="<?php echo $u->idClase ?>"><?php echo $u->idClase .' - '. $u->DescClase?></option>
+									<?php endforeach; ?>
+								</select>
 							</div>
-							<div class="form-group float-label-control col-sm-1">
+							<div class="form-group float-label-control col-sm-2">
 								<label for="">Grupo:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+								<select class="form-control input-sm" ng-model="gridApi.grid.columns[2].filters[0].term">
+									<option value="">Seleccionar</option>
+									<?php foreach($Grupo->result() as $u) : ?>
+									<option value="<?php echo $u->idGrupo ?>"><?php echo $u->idGrupo .' - '. $u->DescGrupo?></option>
+									<?php endforeach; ?>
+								</select>
 							</div>
-							<div class="form-group float-label-control col-sm-1">
+							<div class="form-group float-label-control col-sm-2">
 								<label for="">Subg:</label>
-								<input type="text" class="form-control input-sm" maxlength="145" onkeyup="javascript:this.value=this.value.toUpperCase();" ng-model="gridApi.grid.columns[2].filters[0].term" required>
+								<select class="form-control input-sm" ng-model="gridApi.grid.columns[3].filters[0].term">
+									<option value="">Seleccionar</option>
+									<?php foreach($Subg->result() as $u) : ?>
+									<option value="<?php echo $u->idSubg ?>"><?php echo $u->idSubg .' - '. $u->DescSubg?></option>
+									<?php endforeach; ?>
+								</select>
 							</div>
 					</div>
 				</div>
