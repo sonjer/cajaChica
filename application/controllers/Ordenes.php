@@ -2,7 +2,7 @@
 class Ordenes extends CI_Controller {
 function index()
 {
-$this->template-> loadContent('OrdenesCom.php');
+$this->load->view('OrdenesCom.php');
 }
 }
 ?>
