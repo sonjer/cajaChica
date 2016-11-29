@@ -22,7 +22,7 @@
                data-click-to-select="true"
                data-detail-view="true"
                data-detail-formatter="detailFormatter"
-               data-url="//localhost/table-examples/json/data1.json">
+               data-url="//localhost/intranet/json/data1.json">
             <thead>
             <tr>
 
