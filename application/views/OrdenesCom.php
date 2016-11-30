@@ -31,14 +31,35 @@
                
             <thead>
             <tr>  
-                <th data-field="Ccostos" data-switchable="false">Ccostos</th>
-                <th data-field="factura"data-switchable="false">factura</th>
-                <th data-field="fecha"data-switchable="false">fecha</th>
-                <th data-field="proveedor" data-visible="false">proveedor</th>
-                <th data-field="descripcion"data-visible="false">descripcion</th>
-                <th data-field="importe"data-switchable="false">importe</th>
-                <th data-field="iva" data-visible="false">iva</th>
-                <th data-field="Total"data-visible="false">Total</th>
+                <th data-field="OrdenComp" data-switchable="false">OrdenComp</th>
+                <th data-field="ClaveProv"data-visible="false">ClaveProv</th>
+                <th data-field="ClaveMon"data-visible="false">ClaveMon</th>
+                <th data-field="DescMon" data-visible="false">DescMon</th>
+                <th data-field="TipCamb"data-visible="false">TipCamb</th>
+                <th data-field="NomProv"data-visible="false">NomProv</th>
+                <th data-field="Cve_iva" data-visible="false">Cve_iva</th>
+                <th data-field="ClaveProd"data-switchable="false">ClaveProd</th>
+                <th data-field="Unidad"data-switchable="false">Unidad</th>
+                <th data-field="DescProd" data-switchable="false">DescProd</th>
+                <th data-field="StatusPart"data-switchable="false">StatusPart</th>
+                <th data-field="FaltaPed"data-visible="false">FaltaPed</th>
+                <th data-field="FechEnt" data-visible="false">FechEnt</th>
+                <th data-field="CeCo"data-switchable="false">CeCo</th>
+                <th data-field="ValorProd" data-visible="false">ValorProd</th>
+                <th data-field="dcto1"data-visible="false">dcto1</th>
+                <th data-field="CantProd"data-visible="false">CantProd</th>
+                <th data-field="Importe" data-visible="false">Importe</th>
+                <th data-field="ivaProv"data-visible="false">ivaProv</th>
+                <th data-field="Total"data-switchable="false">Total</th>
+                <th data-field="Partida" data-visible="false">Partida</th>
+                <th data-field="VistBueno"data-visible="false">VistBueno</th>
+                <th data-field="Retencion"data-visible="false">Retencion</th>
+                <th data-field="Reten_iva" data-visible="false">Reten_iva</th>
+                <th data-field="CveSuc"data-switchable="false">CveSuc</th>
+                <th data-field="iepsProd"data-visible="false">iepsProd</th>
+                <th data-field="DesClase" data-visible="false">DesClase</th>
+                <th data-field="CveComp"data-visible="false">CveComp</th>
+                <th data-field="NumReq"data-visible="false">NumReq</th>
                 <th data-field="state" data-checkbox="true"
                 data-formatter="stateFormatter"></th>
             </tr>
@@ -50,30 +71,72 @@
       $db_user="root";
       $db_password= "";
       $db_name="localicom";
-      $db_table_name="detalle_caja_chica";
+      $db_table_name="detallescompra";
 
       $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-      $sql = "SELECT Ccostos, factura, fecha, proveedor, descripcon, importe, iva, total FROM detalle_caja_chica ";
+      $sql = "SELECT OrdenComp, ClaveProv, ClaveMon, DescMon, TipCamb, NomProv, Cve_iva, ClaveProd, Unidad, DescProd, StatusPart, FaltaPed, FechEnt, CeCo, ValorProd, dcto1, CantProd, Importe, ivaProv, Total, Partida, VistBueno, Retencion, Reten_iva, CveSuc, iepsProd, DesClase, CveComp, NumReq FROM detallescompra";
       $resultado = mysqli_query($db_connection,$sql);
       
       while($row = mysqli_fetch_array($resultado))
       {
-        echo "<tr><td width=\"8%\"><font face=\"verdana\">" .
-	        $row["Ccostos"] . "</font></td>";
+        echo "<tr><td width=\"6%\"><font face=\"verdana\">" .
+	        $row["OrdenComp"] . "</font></td>";
         echo "<td width=\"15%\"><font face=\"verdana\">" .
-	        $row["factura"] . "</font></td>";
+	        $row["ClaveProv"] . "</font></td>";
         echo "<td width=\"13%\"><font face=\"verdana\">" .
-	        $row["fecha"] . "</font></td>";
+	        $row["ClaveMon"] . "</font></td>";
         echo "<td width=\"20%\"><font face=\"verdana\">" .
-	        $row["proveedor"] . "</font></td>";
+	        $row["DescMon"] . "</font></td>";
         echo "<td width=\"25%\"><font face=\"verdana\">" .
-	        $row["descripcon"] . "</font></td>";
+	        $row["TipCamb"] . "</font></td>";
         echo "<td width=\"8%\"><font face=\"verdana\">$" .
-	        $row["importe"] . "</font></td>";
+	        $row["NomProv"] . "</font></td>";
         echo "<td width=\"6%\"><font face=\"verdana\">" .
-	        $row["iva"] . "</font></td>";
+	        $row["Cve_iva"] . "</font></td>";
+        echo "<td width=\"15%\"><font face=\"verdana\">" .
+	        $row["ClaveProd"] . "</font></td>";
+        echo "<td width=\"13%\"><font face=\"verdana\">" .
+	        $row["Unidad"] . "</font></td>";
+        echo "<td width=\"20%\"><font face=\"verdana\">" .
+	        $row["DescProd"] . "</font></td>";
+        echo "<td width=\"25%\"><font face=\"verdana\">" .
+	        $row["StatusPart"] . "</font></td>";
         echo "<td width=\"8%\"><font face=\"verdana\">$" .
-	        $row["total"]. "</font></td></tr>";
+	        $row["FaltaPed"] . "</font></td>";
+        echo "<td width=\"6%\"><font face=\"verdana\">" .
+	        $row["FechEnt"] . "</font></td>";
+        echo "<td width=\"25%\"><font face=\"verdana\">" .
+	        $row["CeCo"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
+	        $row["ValorProd"] . "</font></td>";
+        echo "<td width=\"6%\"><font face=\"verdana\">" .
+	        $row["dcto1"] . "</font></td>";
+        echo "<td width=\"15%\"><font face=\"verdana\">" .
+	        $row["CantProd"] . "</font></td>";
+        echo "<td width=\"13%\"><font face=\"verdana\">" .
+	        $row["Importe"] . "</font></td>";
+        echo "<td width=\"20%\"><font face=\"verdana\">" .
+	        $row["ivaProv"] . "</font></td>";
+        echo "<td width=\"25%\"><font face=\"verdana\">" .
+	        $row["Total"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
+	        $row["Partida"] . "</font></td>";
+        echo "<td width=\"6%\"><font face=\"verdana\">" .
+	        $row["VistBueno"] . "</font></td>"; 
+        echo "<td width=\"25%\"><font face=\"verdana\">" .
+	        $row["Retencion"] . "</font></td>";
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
+	        $row["Reten_iva"] . "</font></td>";
+        echo "<td width=\"6%\"><font face=\"verdana\">" .
+	        $row["CveSuc"] . "</font></td>";
+        echo "<td width=\"15%\"><font face=\"verdana\">" .
+	        $row["iepsProd"] . "</font></td>";
+        echo "<td width=\"13%\"><font face=\"verdana\">" .
+	        $row["DesClase"] . "</font></td>";
+        echo "<td width=\"20%\"><font face=\"verdana\">" .
+	        $row["CveComp"] . "</font></td>";   
+        echo "<td width=\"8%\"><font face=\"verdana\">$" .
+	        $row["NumReq"]. "</font></td></tr>";
         
      }
  
@@ -103,7 +166,7 @@
     }
     
 </script>
-<style>
+<!-- <style>
 body {
 background:url(//localhost/intranet/images/icom-wallpaper.png) no-repeat center center fixed;
 -webkit-background-size: cover;
@@ -111,6 +174,6 @@ background:url(//localhost/intranet/images/icom-wallpaper.png) no-repeat center 
 -o-background-size: cover;
 background-size: cover;
 }
-</style>
+</style> -->
 </body>
 </html>
