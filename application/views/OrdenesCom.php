@@ -22,7 +22,7 @@
 </div>
     <div class="container">
         <h4>ORDENES DE COMPRA POR AUTORIZAR</h4>
-        
+        <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button>
         <table id="table"
                data-toggle="table"
                data-height="420"
@@ -31,6 +31,7 @@
                
             <thead>
             <tr>  
+                <th data-field="state" data-checkbox="true"data-formatter="stateFormatter"></th>
                 <th data-field="OrdenComp" data-switchable="false">OrdenCompra</th>
                 <th data-field="ClaveProv"data-visible="false">ClaveProv</th>
                 <th data-field="ClaveMon"data-visible="false">ClaveMon</th>
@@ -60,8 +61,6 @@
                 <th data-field="DesClase" data-visible="false">DesClase</th>
                 <th data-field="CveComp"data-visible="false">CveComp</th>
                 <th data-field="NumReq"data-visible="false">NumReq</th>
-                <th data-field="state" data-checkbox="true"
-                    data-formatter="stateFormatter"></th>
             </tr>
             
             </thead>
@@ -149,7 +148,7 @@
 
                                 
 <script>
-    function stateFormatter(value, $row, index) {
+    function stateFormatter(value, row, index) {
         if (index === 2) {
             return {
                 disabled: true
