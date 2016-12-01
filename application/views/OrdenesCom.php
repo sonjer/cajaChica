@@ -28,10 +28,12 @@
                data-height="420"
                data-click-to-select="true"
                data-show-columns="true">
+
                
             <thead>
             <tr>  
 
+                <th data-field="idDetalle" data-checkbox="true"></th>
                 <th data-field="OrdenComp" >OrdenCompra</th>
                 <th data-field="ClaveProv">ClaveProv</th>
                 <th data-field="ClaveMon">ClaveMon</th>
@@ -72,12 +74,14 @@
       $db_name="localicom";
       $db_table_name="detallescompra";
       $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-      $sql = "SELECT   OrdenComp, ClaveProv, ClaveMon, DescMon, TipCamb, NomProv, Cve_iva, ClaveProd, Unidad, DescProd, StatusPart, FaltaPed, FechEnt, CeCo, ValorProd, dcto1, CantProd, Importe, ivaProv, Total, Partida, VistBueno, Retencion, Reten_iva, CveSuc, iepsProd, DesClase, CveComp, NumReq FROM detallescompra";
+      $sql = "SELECT   idDetalle, OrdenComp, ClaveProv, ClaveMon, DescMon, TipCamb, NomProv, Cve_iva, ClaveProd, Unidad, DescProd, StatusPart, FaltaPed, FechEnt, CeCo, ValorProd, dcto1, CantProd, Importe, ivaProv, Total, Partida, VistBueno, Retencion, Reten_iva, CveSuc, iepsProd, DesClase, CveComp, NumReq FROM detallescompra";
       $resultado = mysqli_query($db_connection,$sql);
       
       while($row = mysqli_fetch_array($resultado))
       {
         echo "<tr><td width=\"8%\">" .
+	        $row["idDetalle"] . "</td>";
+        echo "<td width=\"8%\">" .
 	        $row["OrdenComp"] . "</td>";
         echo "<td width=\"15%\">" .
 	        $row["ClaveProv"] . "</td>";
@@ -147,22 +151,7 @@
     </div>
 
                                 
-<script>
-    function stateFormatter(value, row, index) {
-        if (index === 100000) {
-            return {
-                disabled: true
-            };
-        }
-        if (index === 100001) {
-            return {
-                disabled: true,
-                checked: true
-            }
-        }
-        return value;
-    }
-</script>
+
 <!-- <style>
 body {
 background:url(//localhost/intranet/images/icom-wallpaper.png) no-repeat center center fixed;
