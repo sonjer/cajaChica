@@ -20,107 +20,55 @@
 <b><div id="reloj" ></div><b>
 </a>
 </div>
+ <form method="post" action="add_reg.php"> 
     <div class="container">
-        <h4>ORDENES DE COMPRA POR AUTORIZAR</h4>
+        <h4>LISTADO DE ORDENES DE COMPRA</h4>
         <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
         <table id="table"
                data-toggle="table"
-               data-height="420"
+               data-height="430"
                data-click-to-select="true"
-               data-show-columns="true">
+               data-search="true">
 
                
             <thead>
             <tr>  
 
                 <th data-field="idCompra" data-checkbox="true"></th>
-                <th data-field="CeCo" >CeCo</th>
-                <th data-field="OrdenComp">OrdenComp</th>
-                <th data-field="ClaveProv">ClaveProv</th>
-                <th data-field="ClaveMon" >ClaveMon</th>
-                <th data-field="DescMon">DescMon</th>
-                <th data-field="TipCamb">TipCamb</th>
-                <th data-field="NomProv" >NomProv</th>
-                <th data-field="Cve_iva">Cve_iva</th>
-                <th data-field="CveSuc">CveSuc</th>
-                <th data-field="StatusPart" >StatusPart</th>
-                <th data-field="FalltaPed">FaltaPed</th>
-                <th data-field="FechEnt" >FechEnt</th>
-                <th data-field="Descr">Descr</th>
-                <th data-field="TotalPed" >TotalPed</th>
-                <th data-field="SubtPed" >SubtPed</th>
-                <th data-field="Retencion">Retencion</th>
-                <th data-field="Reten_iva">Reten_iva</th>
-                <th data-field="ieps" >ieps</th>
-                <th data-field="iva">iva</th>
-                <th data-field="UsuAut">UsuAut</th>
-                <th data-field="NomUser" >NomUser</th>
-                <th data-field="statusAut">statusAut</th>
-                <th data-field="FechHoraAut">FechHoraAut</th>
-            </tr>
-            
+                <th data-field="OrdenComp">ORDEN COMPRA</th>
+                <th data-field="NomProv" >PROVEEDOR</th>
+                <th data-field="CveSuc">SUCURSAL</th>
+                <th data-field="SubtPed" >SUBTOTAL</th>
+                <th data-field="TotalPed" >TOTAL</th>
+                <th data-field="StatusPart" >STATUS PART.</th>
+                <th data-field="FalltaPed">FECHA PEDIDO</th>
+                <th data-field="NomUser" >USUARIO</th>
+                <th data-field="statusAut">STATUS AUT.</th>
+                <th data-field="FechHoraAut">FECHA Y HORA AUT.</th>
+            </tr>     
             </thead>
             <?php  
- 
       $db_host="localhost";
       $db_user="root";
       $db_password= "";
       $db_name="localicom";
-      $db_table_name="ORDENESCOMPRA";
       $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-      $sql = "SELECT  *  FROM ORDENESCOMPRA";
+      $sql = "SELECT  *  FROM vistacompras";
       $resultado = mysqli_query($db_connection,$sql);
       
       while($row = mysqli_fetch_array($resultado))
       {
-        echo "<tr><td width=\"8%\">" .
-	        $row["idCompra"] . "</td>";
-        echo utf8_encode("<td width=\"8%\">" .
-	        $row["CeCo"] . "</td>");
-        echo utf8_encode("<td width=\"15%\">" .
-	        $row["OrdenComp"] . "</td>");
-        echo utf8_encode("<td width=\"13%\">" .
-	        $row["ClaveProv"] . "</td>");
-        echo "<td width=\"20%\">" .
-	        $row["ClaveMon"] . "</td>";
-        echo "<td width=\"20%\">" .
-	        $row["DescMon"] . "</td>";
-        echo "<td width=\"25%\">" .
-	        $row["TipCamb"] . "</td>";
-        echo utf8_encode("<td width=\"8%\">" .
-	        $row["NomProv"] . "</td>");
-        echo "<td width=\"6%\">" .
-	        $row["Cve_iva"] . "</td>";
-        echo utf8_encode("<td width=\"15%\">" .
-	        $row["CveSuc"] . "</td>");
-        echo "<td width=\"13%\">" .
-	        $row["StatusPart"] . "</td>";
-        echo "<td width=\"20%\">" .
-	        $row["FalltaPed"] . "</td>";
-        echo "<td width=\"25%\">" .
-	        $row["FechEnt"] . "</td>";
-        echo utf8_encode("<td width=\"25%\">" .
-	        $row["Descr"] . "</td>");
-        echo "<td width=\"8%\">" .
-	        $row["TotalPed"] . "</td>";
-        echo "<td width=\"8%\">" .
-	        $row["SubtPed"] . "</td>";
-        echo "<td width=\"6%\">" .
-	        $row["Retencion"] . "</td>";
-        echo "<td width=\"15%\">" .
-	        $row["Reten_iva"] . "</td>";
-        echo "<td width=\"13%\">" .
-	        $row["ieps"] . "</td>";
-        echo "<td width=\"20%\">" .
-	        $row["iva"] . "</td>";
-        echo "<td width=\"25%\">" .
-	        $row["UsuAut"] . "</td>";
-        echo utf8_encode("<td width=\"8%\">" .
-	        $row["NomUser"] . "</td>");
-        echo "<td width=\"6%\">" .
-	        $row["statusAut"] . "</td>";  
-        echo "<td width=\"8%\">" .
-	        $row["FechHoraAut"]. "</td></tr>";
+        echo utf8_encode("<tr><td width=\"8%\">" . $row["idCompra"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" .$row["ordenCompra"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">" . $row["NomProv"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" . $row["CveSuc"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">$" .$row["SubtPed"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">$" .$row["TotalPed"] . "</td>");
+        echo utf8_encode("<td width=\"6%\">" . $row["StatusPart"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" . $row["FalltaPed"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">" . $row["NomUser"] . "</td>");
+        echo utf8_encode("<td width=\"6%\">" .$row["statusAut"] . "</td>");  
+        echo utf8_encode("<td width=\"8%\">" . $row["FechHoraAut"]. "</td></tr>");
         
      }
  
@@ -131,17 +79,6 @@
          <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
          <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
     </div>
-
-                                
-
-<!-- <style>
-body {
-background:url(//localhost/intranet/images/icom-wallpaper.png) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-}
-</style> -->
+    </form>
 </body>
 </html>
