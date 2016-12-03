@@ -20,7 +20,7 @@
 <b><div id="reloj" ></div><b>
 </a>
 </div>
- <form method="post" action="add_reg.php"> 
+ <form method="post" action="add_reg2.php"> 
     <div class="container">
         <h4>LISTADO DE ORDENES DE COMPRA</h4>
         <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
@@ -35,9 +35,10 @@
             <tr>  
 
                 <th data-field="idCompra" data-checkbox="true"></th>
-                <th data-field="OrdenComp">ORDEN COMPRA</th>
-                <th data-field="NomProv" >PROVEEDOR</th>
-                <th data-field="CveSuc">SUCURSAL</th>
+                <th data-field="CveSuc">CLIENTE</th>
+                <th data-field="CeCo" >CeCo</th>
+                <th data-field="OrdenComp">#ORDEN</th>
+                <th data-field="NomProv">PROVEEDOR</th>
                 <th data-field="SubtPed" >SUBTOTAL</th>
                 <th data-field="TotalPed" >TOTAL</th>
                 <th data-field="StatusPart" >STATUS PART.</th>
@@ -59,9 +60,10 @@
       while($row = mysqli_fetch_array($resultado))
       {
         echo utf8_encode("<tr><td width=\"8%\">" . $row["idCompra"] . "</td>");
-        echo utf8_encode("<td width=\"15%\">" .$row["ordenCompra"] . "</td>");
-        echo utf8_encode("<td width=\"8%\">" . $row["NomProv"] . "</td>");
-        echo utf8_encode("<td width=\"15%\">" . $row["CveSuc"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" .$row["CveSuc"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">" . $row["Ceco"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" . $row["OrdenComp"] . "</td>");
+        echo utf8_encode("<td width=\"15%\">" . $row["NomProv"] . "</td>");
         echo utf8_encode("<td width=\"8%\">$" .$row["SubtPed"] . "</td>");
         echo utf8_encode("<td width=\"8%\">$" .$row["TotalPed"] . "</td>");
         echo utf8_encode("<td width=\"6%\">" . $row["StatusPart"] . "</td>");
