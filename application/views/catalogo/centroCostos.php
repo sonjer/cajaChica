@@ -66,7 +66,6 @@
                             <input type="text" class="form-control input-sm" ng-model="ceco.descripcion" required>
 						</div>
 					</div>
-
 					<div class="form-group">
 					<label for="name-in" class="col-md-3 label-heading">Cliente</label>
 						<div class="col-md-9">
