@@ -20,10 +20,10 @@
 <b><div id="reloj" ></div><b>
 </a>
 </div>
- <form method="post" > 
+ <form > 
     <div class="container">
         <h4>LISTADO DE ORDENES DE COMPRA</h4>
-        <button type="submit" id= "button#acpt" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
+        <button type="submit" id= "button#acpt" name= "button#acpt" class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
         <table id="table"
                data-toggle="table"
                data-height="430"
@@ -90,7 +90,6 @@
             $('#table').on('check.bs.table', function (e, row) {
                   checkedRows.push({id: row.idCompra});
                   console.log(checkedRows);
-                  alert(id: row.idCompra);
                 });
 
                 $('#table').on('uncheck.bs.table', function (e, row) {
@@ -120,7 +119,6 @@ $('button#acpt').on("click",function(e){
               e.preventDefault();              
         });
 });
-
 </script>
 </body>
 </html>

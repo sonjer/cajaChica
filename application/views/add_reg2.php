@@ -12,8 +12,6 @@ if(isset($_POST["data"]))
     //var_dump($data);
     foreach($data->data as $mydata)
     {
-         $sql = "UPDATE vistacompras SET statusAut='Autorizada' WHERE idCompra=".$mydata->id;
+        $MySQLiconn->query("UPDATE vistacompras SET statusAut='Autorizada' WHERE idCompra=".$mydata->id);
     }
 }
-
-       ?>

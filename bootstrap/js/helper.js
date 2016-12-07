@@ -26,5 +26,4 @@ var urlUsuarios = global_base_url + 'usuarios/';
 var urlPermisos = global_base_url + 'admin/permisos/';
 
 //Catalogo
-var urlCobra = global_base_url + 'controlObra/';
-
+var urlOrdenes = global_base_url + 'OrdenesCompra/';
