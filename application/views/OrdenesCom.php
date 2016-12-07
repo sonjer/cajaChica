@@ -20,10 +20,10 @@
 <b><div id="reloj" ></div><b>
 </a>
 </div>
- <form method="post" action="add_reg2.php"> 
+ <form method="post" > 
     <div class="container">
         <h4>LISTADO DE ORDENES DE COMPRA</h4>
-        <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
+        <button type="submit" id= "button#acpt" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Autorizar Seleccionados</button><br>
         <table id="table"
                data-toggle="table"
                data-height="430"
@@ -33,8 +33,8 @@
                
             <thead>
             <tr>  
-
-                <th data-field="idCompra" data-checkbox="true"></th>
+                <th data-field="id" data-checkbox="true"></th>
+                <th data-field="idCompra">IDCOMP</th>
                 <th data-field="CveSuc">CLIENTE</th>
                 <th data-field="CeCo" >CeCo</th>
                 <th data-field="OrdenComp">#ORDEN</th>
@@ -54,12 +54,14 @@
       $db_password= "";
       $db_name="localicom";
       $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-      $sql = "SELECT  *  FROM vistacompras";
+      $sql = "SELECT idCompra, CveSuc, Ceco,OrdenComp, NomProv, SubtPed, TotalPed, StatusPart, FalltaPed, NomUser, statusAut, FechHoraAut from ordenescompra";
       $resultado = mysqli_query($db_connection,$sql);
       
       while($row = mysqli_fetch_array($resultado))
       {
-        echo utf8_encode("<tr><td width=\"8%\">" . $row["idCompra"] . "</td>");
+   
+        echo "<tr><td width=\"8%\"></td>";
+        echo utf8_encode("<td width=\"8%\">" . $row["idCompra"] . "</td>");
         echo utf8_encode("<td width=\"15%\">" .$row["CveSuc"] . "</td>");
         echo utf8_encode("<td width=\"8%\">" . $row["Ceco"] . "</td>");
         echo utf8_encode("<td width=\"15%\">" . $row["OrdenComp"] . "</td>");
@@ -78,9 +80,47 @@
        mysqli_close($db_connection);
        ?>
         </table>
-         <button type="button" ng-click="eliminaUsuario()" class="btn btn-danger btn-sm">Cancelar</button>
-         <button type="submit" name= "enviar" value= "Aceptar informacion"class="btn btn-primary btn-sm">Guardar</button>
+
     </div>
     </form>
+    <script type="text/javascript">
+    $(document).ready(function(){
+            var checkedRows = new Array();
+            //Cuando se da clic al checkbox este selecciona las propiedades de la tabla..
+            $('#table').on('check.bs.table', function (e, row) {
+                  checkedRows.push({id: row.idCompra});
+                  console.log(checkedRows);
+                  alert(id: row.idCompra);
+                });
+
+                $('#table').on('uncheck.bs.table', function (e, row) {
+                  $.each(checkedRows, function(index, value) {
+                    if (value.id === row.id) {
+                      checkedRows.splice(index,1);
+                    }
+                  });
+                  console.log(checkedRows);
+                });
+//Aqui es donde actualizas tu tabla asignale un id al botón
+$('button#acpt').on("click",function(e){
+         var array = {data: checkedRows};
+         var paramJSON = JSON.stringify(array);
+
+         console.log(array);
+          $.ajax({
+                method: 'POST',
+                url: 'add_reg2.php',
+                data: { data: paramJSON },
+                cache:false })
+                .done(function( msg ) {
+                  console.log(msg);
+                location.reload()
+              });
+
+              e.preventDefault();              
+        });
+});
+
+</script>
 </body>
 </html>
