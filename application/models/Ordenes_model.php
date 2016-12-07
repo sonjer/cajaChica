@@ -50,7 +50,7 @@ class Ordenes_Model extends CI_Model {
 
     function autorizarbyID($idCompra){
      $this->output->enable_profiler(TRUE);
-      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'false' WHERE idCompra = ?;", $idCompra)){
+      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'false', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
     }
