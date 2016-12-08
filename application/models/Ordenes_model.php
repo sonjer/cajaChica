@@ -22,38 +22,22 @@ class Ordenes_Model extends CI_Model {
         return $data;
       }
     }
-
-    /*Get DATA*/
-    public function getClientes(){
-      return $this->db->query("SELECT * FROM clientes;");
-    }
-
-    /* GET 1 ROW */
-    public function jsonGetIdCompra($idCompra) {
-      //  $this->output->enable_profiler(TRUE);
-      $q = $this -> db -> query("select * FROM ORDENESCOMPRA where idCompra = ?", $idCompra);
-      if ($q -> num_rows() > 0) {
-        foreach ($q->result() as $row) {
-          $data[] = $row;
-        }
-        return $data;
-      }
-    }
-
-    function autorizar($obj){
-     $this->output->enable_profiler(TRUE);
-      extract($this->compras->arrayCastRecursive($obj));
-      if($this -> db -> query("UPDATE ordenescompra SET NomUser = ?, statusAut = 'false' WHERE idCompra = ?;", $this->user->info->ID, $idCompra)){
-        return 'actualizado';
-      }
-    }
+    /********************************************** AUTORIZACION DE ORDEN DE  COMPRA ********************************************************************/
 
     function autorizarbyID($idCompra){
-     $this->output->enable_profiler(TRUE);
+     $this->output->enable_profiler(true);
       if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'Autorizada', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
     }
+    /********************************************** DESAUTORIZAR ORDEN DE  COMPRA ********************************************************************/
+    function desautorizarbyID($idCompra){
+     $this->output->enable_profiler(false);
+      if($this -> db -> query("UPDATE ORDENESCOMPRA SET NomUser = NULL, statusAut =NULL, FechHoraAut =NULL WHERE  idCompra = ?;", $idCompra)){
+        return 'actualizado';
+      }
+    }
+
 
   }
   ?>

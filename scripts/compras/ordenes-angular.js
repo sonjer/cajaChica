@@ -2,7 +2,7 @@ var app = angular.module('centroCostosApp', []);
 app.controller('centroCostosCtrl', function($scope, $http, comprasFactory) {
 
 	$scope.loadData = function () {
-		$('#table2').bootstrapTable('refresh');
+		$('#table2').bootstrapTable('destroy');
 		$http.get(urlOrdenes + 'getOrdenCompra/' + comprasFactory.data.OrdenComp).success(function(data, status, headers, config) {
 				$('#table2').bootstrapTable({
 					data: data['data']
@@ -22,7 +22,7 @@ app.controller('centroCostosCtrl', function($scope, $http, comprasFactory) {
 
 	$scope.aprobar = function(obj) {
 		$http.get(urlOrdenes + 'autorizarCompraID/' + obj.idCompra).success(function(data) {
-			$scope.set_flashdata('Se autorizo la partida correctamente!', 'success');
+			$scope.set_flashdata('Se autorizo la orden de compra correctamente!', 'success');
             	$scope.loadData();
 		});
 	};
