@@ -26,17 +26,17 @@
 						    data-search="true">
 						  <thead>
 						    <tr>
-									<th data-field="statusAut" data-checkbox="true" data-formatter="stateFormatter"></th>
+									<th data-field="state" data-checkbox="true" data-formatter="stateFormatter"></th>
 									<th data-field="idCompra">IDCOMP</th>
 									<th data-field="CveSuc">CLIENTE</th>
-									<th data-field="CeCo" >CeCo</th>
-									<th data-field="OrdenComp">#ORDEN</th>
+									<th data-field="NoOrden">#ORDEN-COMP</th>
 									<th data-field="NomProv">PROVEEDOR</th>
 									<th data-field="SubtPed" >SUBTOTAL</th>
 									<th data-field="TotalPed" >TOTAL</th>
 									<th data-field="StatusPart" >STATUS PART.</th>
 									<th data-field="FalltaPed">FECHA PEDIDO</th>
 									<th data-field="NomUser" >USUARIO</th>
+									<th data-field="statusAut">STATUS AUT.</th>
 									<th data-field="FechHoraAut">FECHA Y HORA AUT.</th>
 						    </tr>
 						  </thead>
@@ -106,9 +106,18 @@
          if (value === 'false') {
              return {
               //   disabled: true,
-                 checked: true
+                 checked: false
              }
          }
          return value;
      }
 	</script>
+	<script>
+    var $table = $('#table2'),
+        $button = $('#data-checkbox');
+    $(function () {
+        $button.click(function () {
+            $table.bootstrapTable('refresh');
+        });
+    });
+</script>

@@ -10,9 +10,9 @@ class Ordenes_Model extends CI_Model {
   public function jsonGetOrdenCompra($OrdenComp) {
     //$this->output->enable_profiler(TRUE);
     if($OrdenComp == 'chavelo') :
-      $q = $this -> db -> query("SELECT * FROM ORDENESCOMPRA");
+      $q = $this -> db -> query("SELECT * FROM Ocompras");
       else :
-        $q = $this -> db -> query("SELECT * FROM ORDENESCOMPRA where OrdenComp = ?", $OrdenComp);
+        $q = $this -> db -> query("SELECT * FROM Ocompras where OrdenComp = ?", $OrdenComp);
       endif;
 
       if ($q -> num_rows() > 0) {
@@ -50,7 +50,7 @@ class Ordenes_Model extends CI_Model {
 
     function autorizarbyID($idCompra){
      $this->output->enable_profiler(TRUE);
-      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'false', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
+      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'Autorizada', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
     }
