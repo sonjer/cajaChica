@@ -19,11 +19,12 @@
 					  <b><div id="reloj" ></div><b>
 					  </a>
 					</div>
+					<h4 align="center">SELECCIONE UNA ORDEN DE COMPRA PARA AUTORIZAR</h4>
              <div class="panel-body">
 					  	<table  id="table2" ng-init="loadData()"data-height="430"  data-click-to-select="true"data-search="true">
 						  <thead>
 						    <tr>
-									<th data-field="state" data-checkbox="true" data-formatter="stateFormatter"></th>
+									<th data-field="statusAut" data-checkbox="true" data-formatter="stateFormatter"></th>
 									<th data-field="idCompra">IDCOMP</th>
 									<th data-field="CveSuc">CLIENTE</th>
 									<th data-field="NoOrden">ORDEN-COMP</th>
@@ -33,7 +34,6 @@
 									<th data-field="StatusPart" >STATUS PART.</th>
 									<th data-field="FalltaPed">FECHA PEDIDO</th>
 									<th data-field="NomUser" >USUARIO</th>
-									<th data-field="statusAut">STATUS AUT.</th>
 									<th data-field="FechHoraAut">FECHA Y HORA AUT.</th>
 						    </tr>
 						    </thead>
@@ -62,7 +62,7 @@
          if (value === 'false') {
              return {
               //   disabled: true,
-                 checked: false
+                 checked: true
              }
          }
          return value;

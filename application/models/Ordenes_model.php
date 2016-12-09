@@ -25,14 +25,14 @@ class Ordenes_Model extends CI_Model {
     /********************************************** AUTORIZACION DE ORDEN DE  COMPRA ********************************************************************/
 
     function autorizarbyID($idCompra){
-     $this->output->enable_profiler(true);
-      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'Autorizada', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
+     $this->output->enable_profiler(TRUE);
+      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'false', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
     }
     /********************************************** DESAUTORIZAR ORDEN DE  COMPRA ********************************************************************/
     function desautorizarbyID($idCompra){
-     $this->output->enable_profiler(false);
+     $this->output->enable_profiler(TRUE);
       if($this -> db -> query("UPDATE ORDENESCOMPRA SET NomUser = NULL, statusAut =NULL, FechHoraAut =NULL WHERE  idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
