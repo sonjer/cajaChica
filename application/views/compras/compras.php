@@ -59,9 +59,9 @@
 	});
 
 	function stateFormatter(value, row, index) {
-         if (value === 'false') {
+         if (value === 'Autorizada') {
              return {
-              //   disabled: true,
+                 disabled: true,
                  checked: true
              }
          }

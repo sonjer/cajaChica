@@ -9,16 +9,6 @@ app.controller('centroCostosCtrl', function($scope, $http, comprasFactory) {
 				});
 		}).error(function(data, status, headers, config) {	});
 	}
-/*
-	$scope.aprobar = function(obj){
-			$('#table2').bootstrapTable('destroy');
-			$http.get(urlOrdenes + 'getIdCompra/' + obj.idCompra).success(function(data, status, headers, config) {
-				$('#table2').bootstrapTable({
-				data: data['data']
-				});
-				print_r(obj);
-			}).error(function(data, status, headers, config) {	});
-	}*/
 
 	$scope.aprobar = function(obj) {
 		$http.get(urlOrdenes + 'autorizarCompraID/' + obj.idCompra).success(function(data) {
