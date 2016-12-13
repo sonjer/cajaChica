@@ -23,7 +23,7 @@ class Catalogo extends CI_Controller {
                                       '<script type="text/javascript" src="' . base_url() . 'bootstrap/js/angular-ui-router.min.js" /></script>');
         $data['clientes'] = $this->catalogo_model->getClientes();
         $this->template->loadContent("catalogo/centroCostos.php", $data);
-    } 
+    }
     public function Insumos() {
         $this -> template -> loadData("activeLink", array("catalogo" => array("insumos" => 1)));
         $this->template->loadExternal('<script type="text/javascript" src="' . base_url() . 'scripts/catalogo/insumos-angular.js" /></script>'.
@@ -34,13 +34,13 @@ class Catalogo extends CI_Controller {
         $data['Grupo'] = $this->catalogo_model->getGrupoProd();
         $data['Subg'] = $this->catalogo_model->getSubgProd();
         $this->template->loadContent("catalogo/insumos.php", $data);
-    } 
-    
+    }
+
     /********************************************** SELECCION ********************************************************************/
-    function getCentroCostos($idCentroCostos){  
+    function getCentroCostos($idCentroCostos){
         $data['data'] = $this->catalogo_model->jsonGetCentroCostos($idCentroCostos);
          $this->output->set_content_type('application/json');
-         $this->output->set_output(json_encode($data));          
+         $this->output->set_output(json_encode($data));
     }
 
     public function getRowCentroCostos($idCentroCostos) {
@@ -50,10 +50,10 @@ class Catalogo extends CI_Controller {
       //  $this -> output -> set_output(json_encode($data['0'], JSON_FORCE_OBJECT));
     }
     /********************************************** SELECCION INSUMOS ********************************************************************/
-    function getInsumos($idInsumo){  
+    function getInsumos($idInsumo){
         $data['data'] = $this->catalogo_model->jsonGetInsumos($idInsumo);
          $this->output->set_content_type('application/json');
-         $this->output->set_output(json_encode($data));          
+         $this->output->set_output(json_encode($data));
     }
 
     public function getRowInsumos($idInsumo) {
@@ -67,12 +67,12 @@ class Catalogo extends CI_Controller {
         if ($this->user->info->user_level == 5){
             $obj = json_decode(file_get_contents("php://input"));
             $data = $this->getRowCentroCostos($obj->idCentroCostos);
-            //print_r($obj);
+            print_r($obj);
        if (empty($data)) {
              echo $this->catalogo_model->insertCentroCostos($obj);
          } else {
              echo $this->catalogo_model->updateCentroCostos($obj);
-         } 
+         }
      }
      else{
         $this->template->error(lang("error_2"));
@@ -89,7 +89,7 @@ class Catalogo extends CI_Controller {
              echo $this->catalogo_model->insertInsumos($obj);
          } else {
              echo $this->catalogo_model->updateInsumos($obj);
-         } 
+         }
      }
      else{
         $this->template->error(lang("error_2"));
@@ -106,7 +106,7 @@ public function eliminaCentroCostos(){
     }
     else{
         $this->template->error(lang("error_2"));
-    }        
+    }
 }
 
 
@@ -119,7 +119,7 @@ public function eliminaInsumos(){
     }
     else{
         $this->template->error(lang("error_2"));
-    }        
+    }
 }
 
 

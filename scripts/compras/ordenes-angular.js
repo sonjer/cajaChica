@@ -13,7 +13,14 @@ app.controller('centroCostosCtrl', function($scope, $http, comprasFactory) {
 	$scope.aprobar = function(obj) {
 		$http.get(urlOrdenes + 'autorizarCompraID/' + obj.idCompra).success(function(data) {
 			$scope.set_flashdata('Se autorizo la orden de compra correctamente!', 'success');
-            	$scope.loadData();
+			$http({
+					url : 'http://localhost/correo/mail.php',
+					method : "POST",
+					data : obj,
+			}).success(function(data) {
+				print_r(data);
+			});
+      $scope.loadData();
 		});
 	};
 

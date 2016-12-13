@@ -1,24 +1,17 @@
 <?php
+  //if(isset($_POST["data"])) {
+    $obj = json_decode(file_get_contents("php://input"));
+    print_r($obj);
+    // var_dump($data);
+/*
+    foreach($data->data as $mydata) {
 
-$jsondata = array();
-
-if( isset($_GET['param']) ) {
-
-    if( $_GET['param'] == 'valor1' ) {
-
-        $jsondata['success'] = true;
-        $jsondata['message'] = 'Hola! El valor recibido es correcto.';
-
-    } else {
-
-        $jsondata['success'] = false;
-        $jsondata['message'] = 'Hola! El valor recibido no es correcto.';
+      $idCompra = $mydata->idCompra;
+      $CveSuc = $mydata->CveSuc;
+      $NoOrden = $mydata->NoOrden;
+      echo $idCompra." ".$CveSuc." ".$NoOrden;
 
     }
-
-    //Aunque el content-type no sea un problema en la mayoría de casos, es recomendable especificarlo
-    header('Content-type: application/json; charset=utf-8');
-    echo json_encode($jsondata);
-    exit();
-
-}
+*/
+  //  echo json_encode($data);
+  //}
