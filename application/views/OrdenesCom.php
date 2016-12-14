@@ -109,12 +109,12 @@ $('#acpt').on("click",function(e){
          console.log(array);
           $.ajax({
                 method: 'POST',
-                url: 'add_reg2.php',
+                url: 'http://localhost/correo2/mail.php',
                 data: { data: paramJSON },
                 cache:false })
                 .done(function( msg ) {
                   console.log(msg);
-                location.reload()
+                  location.reload()
               });
 
               e.preventDefault();

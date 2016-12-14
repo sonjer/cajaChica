@@ -20,6 +20,7 @@
 					  </a>
 					</div>
 					<h4 align="center">SELECCIONE UNA ORDEN DE COMPRA PARA AUTORIZAR</h4>
+					
              <div class="panel-body">
 					  	<table  id="table2" ng-init="loadData()"data-height="430"  data-click-to-select="true"data-search="true">
 						  <thead>
@@ -46,30 +47,10 @@
 	<!-- FIN CONTROLLER -->
 	<script src="<?php echo base_url(); ?>bootstrap/js/ui-grid.min.js"></script>
 	<script>
-	$('#table2').on('check.bs.table', function (e, row) {
-	/*//	print_r(row);
-	         var array = {data: row};
-	         var paramJSON = JSON.stringify(array);
-
-            console.log(array);
-	          $.ajax({
-							    data: { data: paramJSON },
-									type: "POST",
-									url: 'http://localhost/correo/mail.php',
-									cache:false
-									 })
-									.done(function( msg ) {
-									console.log(msg);
-
-											 });
-
-*/
-		angular.element($('#requisicionID')).scope().aprobar(row);
-
+			$('#table2').on('check.bs.table', function (e, row) {
+			angular.element($('#requisicionID')).scope().aprobar(row);
 	});
-
-
-	function stateFormatter(value, row, index) {
+	  function stateFormatter(value, row, index) {
          if (value === 'Autorizada') {
              return {
                  disabled: true,
