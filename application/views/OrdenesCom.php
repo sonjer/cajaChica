@@ -106,6 +106,7 @@ $('#acpt').on("click",function(e){
          var array = {data: checkedRows};
          var paramJSON = JSON.stringify(array);
 
+
          console.log(array);
           $.ajax({
                 method: 'POST',
@@ -113,13 +114,15 @@ $('#acpt').on("click",function(e){
                 data: { data: paramJSON },
                 cache:false })
                 .done(function( msg ) {
-                  console.log(msg);
-                  location.reload()
-              });
+                console.log(msg);
+                
 
+              });
               e.preventDefault();
         });
+
 });
+
 </script>
 </body>
 </html>
