@@ -43,7 +43,7 @@
                 <th data-field="TotalPed" >TOTAL</th>
                 <th data-field="StatusPart" >STATUS PART.</th>
                 <th data-field="FalltaPed">FECHA PEDIDO</th>
-                <th data-field="NomUser" >USUARIO</th>
+                <th data-field="NumUser" >USUARIO</th>
                 <th data-field="statusAut">STATUS AUT.</th>
                 <th data-field="FechHoraAut">FECHA Y HORA AUT.</th>
             </tr>
@@ -54,7 +54,7 @@
       $db_password= "";
       $db_name="localicom";
       $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-      $sql = "SELECT idCompra, CveSuc, Ceco,OrdenComp, NomProv, SubtPed, TotalPed, StatusPart, FalltaPed, NomUser, statusAut, FechHoraAut from ordenescompra";
+      $sql = "SELECT idCompra, CveSuc, Ceco,OrdenComp, NomProv, SubtPed, TotalPed, StatusPart, FalltaPed, NumUser, statusAut, FechHoraAut from ordenescompra";
       $resultado = mysqli_query($db_connection,$sql);
 
       while($row = mysqli_fetch_array($resultado))
@@ -70,7 +70,7 @@
         echo utf8_encode("<td width=\"8%\">$" .$row["TotalPed"] . "</td>");
         echo utf8_encode("<td width=\"6%\">" . $row["StatusPart"] . "</td>");
         echo utf8_encode("<td width=\"15%\">" . $row["FalltaPed"] . "</td>");
-        echo utf8_encode("<td width=\"8%\">" . $row["NomUser"] . "</td>");
+        echo utf8_encode("<td width=\"8%\">" . $row["NumUser"] . "</td>");
         echo utf8_encode("<td width=\"6%\">" .$row["statusAut"] . "</td>");
         echo utf8_encode("<td width=\"8%\">" . $row["FechHoraAut"]. "</td></tr>");
 
@@ -115,7 +115,7 @@ $('#acpt').on("click",function(e){
                 cache:false })
                 .done(function( msg ) {
                 console.log(msg);
-                
+
 
               });
               e.preventDefault();

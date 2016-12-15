@@ -19,7 +19,7 @@
 					  <b><div id="reloj" ></div><b>
 					  </a>
 					</div>
-					<h4 align="center">SELECCIONE UNA ORDEN DE COMPRA PARA AUTORIZAR</h4>
+					<h4 align="center">SELECCIONE UNA ORDEN DE COMPRA PARA DAR VISTO BUENO</h4>
 
              <div class="panel-body">
 					  	<table  id="table2" ng-init="loadData()"data-height="430"  data-click-to-select="true"data-search="true">
@@ -30,10 +30,11 @@
 									<th data-field="CveSuc">CLIENTE</th>
 									<th data-field="NoOrden">ORDEN-COMP</th>
 									<th data-field="NomProv">PROVEEDOR</th>
-									<th data-field="TotalPed" data-formatter="priceFormatter">TOTAL COMPRA</th>
+									<th data-field="TotalPed" data-formatter="priceFormatter">TOTAL COMP.</th>
 									<th data-field="FalltaPed">FECHA PEDIDO</th>
-									<th data-field="NumUser" >USUARIO</th>
-									<th data-field="FechHoraAut">FECHA Y HORA AUT.</th>
+									<th data-field="UserVisBueno" >USUARIO</th>
+									<th data-field="VistoBueno">VIST.BUENO</th>
+
 						    </tr>
 						    </thead>
 					    	</table>
@@ -46,7 +47,7 @@
 	<script src="<?php echo base_url(); ?>bootstrap/js/ui-grid.min.js"></script>
 	<script>
 			$('#table2').on('check.bs.table', function (e, row) {
-			angular.element($('#requisicionID')).scope().aprobar(row);
+			angular.element($('#requisicionID')).scope().aprobarVistoBueno(row);
 	});
 	  function stateFormatter(value, row, index) {
          if (value === 'Autorizada') {
@@ -57,12 +58,13 @@
          }
          return value;
      }
-		 function priceFormatter(value) {
-		// 16777215 == ffffff in decimal
-		var color = '#'+Math.floor(Math.random() * 6776566161616).toString(18);
-		return '<div  style="color: ' + color + '">' +
-						'<i class="glyphicon glyphicon-usd"></i>' +
-						value.substring(0) +
-						'</div>';
-}
+     function priceFormatter(value) {
+    // 16777215 == ffffff in decimal
+    var color = '#'+Math.floor(Math.random() * 6776566161616).toString(18);
+    return '<div  style="color: ' + color + '">' +
+            '<i class="glyphicon glyphicon-usd"></i>' +
+            value.substring(0) +
+            '</div>';
+ }
+
 	</script>

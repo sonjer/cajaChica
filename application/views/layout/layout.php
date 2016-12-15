@@ -104,16 +104,25 @@
   <?php if($this->user->loggedin && $this->permisos->info->idModulo == 3) : ?>
   <ul class="newnav nav nav-sidebar">
       <li id="requisiciones_rq">
-          <a data-toggle="collapse" data-parent="#insumos_menu" href="#insumos_menu_c" class="collapsed bolded <?php if(isset($activeLink['catalogo'])) echo "active" ?>" >
-              <span class="glyphicon glyphicon-list-alt"></span> R.H.
+          <a data-toggle="collapse" data-parent="#insumos_menu" href="#insumos_menu_c" class="collapsed bolded <?php if(isset($activeLink['compras'])) echo "active" ?>" >
+              <span class="glyphicon glyphicon-list-alt"></span> ORDENES DE COMPRA
               <span class="plus-sidebar"><span class="glyphicon glyphicon-chevron-down"></span></span>
           </a>
           <div id="insumos_menu_c" class="panel-collapse collapse sidebar-links-inner <?php if(isset($activeLink['insumos'])) echo "in" ?>">
               <ul class="inner-sidebar-links">
                   <?php if($this->user->info->user_level >= 4)  : ?>
-                  <li class="<?php if(isset($activeLink['catalogo']['caja'])) echo "active" ?>">
-                      <a href="<?php echo site_url("caja") ?>">
-                          <span class="glyphicon glyphicon-file"></span> Caja Chica <span class="sr-only">(current)</span>
+                  <li class="<?php if(isset($activeLink['compras']['compras'])) echo "active" ?>">
+                      <a href="<?php echo site_url("ordenescompra/compras") ?>">
+                          <span class="glyphicon glyphicon-file"></span> POR AUTORIZAR <span class="sr-only">(current)</span>
+                      </a>
+                  </li>
+                  <?php endif; ?>
+              </ul>
+              <ul class="inner-sidebar-links">
+                  <?php if($this->user->info->user_level >= 4)  : ?>
+                  <li class="<?php if(isset($activeLink['compras']['ordenes'])) echo "active" ?>">
+                      <a href="<?php echo site_url("ordenescompra/comprasVistoBueno") ?>">
+                          <span class="glyphicon glyphicon-file"></span> VISTO BUENO <span class="sr-only">(current)</span>
                       </a>
                   </li>
                   <?php endif; ?>

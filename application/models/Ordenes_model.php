@@ -6,7 +6,7 @@ class Ordenes_Model extends CI_Model {
 
   /********************************************** SELECCION ********************************************************************/
 
-  /************************** CECO **************************************************************************/
+  /************************** ORDEN COMPRA **************************************************************************/
   public function jsonGetOrdenCompra($OrdenComp) {
     //$this->output->enable_profiler(TRUE);
     if($OrdenComp == 'chavelo') :
@@ -22,22 +22,39 @@ class Ordenes_Model extends CI_Model {
         return $data;
       }
     }
+    /********************************************** SELECCION ********************************************************************/
+
+    /************************** ORDEN COMPRAS VISTO BUENO **************************************************************************/
+    public function jsonGetOrdenCompraVisto($OrdenComp) {
+      //$this->output->enable_profiler(TRUE);
+      if($OrdenComp == 'chavelo2') :
+        $q = $this -> db -> query("SELECT * FROM VistoBueno");
+        else :
+          $q = $this -> db -> query("SELECT * FROM VistoBueno where OrdenComp = ?", $OrdenComp);
+        endif;
+
+        if ($q -> num_rows() > 0) {
+          foreach ($q->result() as $row) {
+            $data[] = $row;
+          }
+          return $data;
+        }
+      }
     /********************************************** AUTORIZACION DE ORDEN DE  COMPRA ********************************************************************/
 
     function autorizarbyID($idCompra){
      $this->output->enable_profiler(TRUE);
-      if($this -> db -> query("update ordenescompra SET NomUser = ". $this->user->info->ID .", statusAut = 'Autorizada', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
+      if($this -> db -> query("update ordenescompra SET NumUser = ". $this->user->info->ID .", statusAut = 'Autorizada', FechHoraAut = now() WHERE idCompra = ?;", $idCompra)){
         return 'actualizado';
       }
     }
-    /********************************************** DESAUTORIZAR ORDEN DE  COMPRA ********************************************************************/
-    function desautorizarbyID($idCompra){
-     $this->output->enable_profiler(TRUE);
-      if($this -> db -> query("UPDATE ORDENESCOMPRA SET NomUser = NULL, statusAut =NULL, FechHoraAut =NULL WHERE  idCompra = ?;", $idCompra)){
-        return 'actualizado';
-      }
-    }
+    /********************************************** VISTO BUENO DE ORDEN DE  COMPRA ********************************************************************/
 
-
+        function VistoBuenobyID($idCompra){
+         $this->output->enable_profiler(TRUE);
+          if($this -> db -> query("update ordenescompra SET UserVisBueno = ". $this->user->info->ID .", VistoBueno = 'VistoBueno' WHERE idCompra = ?;", $idCompra)){
+            return 'actualizado';
+          }
+        }
   }
   ?>
