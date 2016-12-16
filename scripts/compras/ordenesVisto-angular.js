@@ -12,7 +12,7 @@ app.controller('centroCostosCtrl', function($scope, $http, comprasFactory2) {
 
 	$scope.aprobarVistoBueno = function(obj) {
 		$http.get(urlOrdenes + 'VistoBuenoCompraID/' + obj.idCompra).success(function(data) {
-			$scope.set_flashdata('Se dio Visto Bueno a  la orden de compra correctamente!', 'success');
+			$scope.set_flashdata('Se dio Visto Bueno a  la orden de compra !', 'success');
       $scope.loadData();
 		});
 	};

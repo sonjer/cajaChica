@@ -30,7 +30,7 @@
 									<th data-field="CveSuc">CLIENTE</th>
 									<th data-field="NoOrden">ORDEN-COMP</th>
 									<th data-field="NomProv">PROVEEDOR</th>
-									<th data-field="TotalPed" data-formatter="priceFormatter">TOTAL COMP.</th>
+									<th class="col-sm-2" data-field="TotalPed" data-formatter="priceFormatter" >TOTAL COMP.</th>
 									<th data-field="FalltaPed">FECHA PEDIDO</th>
 									<th data-field="UserVisBueno" >USUARIO</th>
 									<th data-field="VistoBueno">VIST.BUENO</th>
@@ -58,13 +58,14 @@
          }
          return value;
      }
-     function priceFormatter(value) {
-    // 16777215 == ffffff in decimal
-    var color = '#'+Math.floor(Math.random() * 6776566161616).toString(18);
-    return '<div  style="color: ' + color + '">' +
-            '<i class="glyphicon glyphicon-usd"></i>' +
-            value.substring(0) +
-            '</div>';
- }
-
 	</script>
+<script>
+function priceFormatter(value) {
+		// 16777215 == ffffff in decimal
+		var color = '#'+Math.floor(Math.random() * 6777215).toString(16);
+		return '<div  style="color: ' + color + '">' +
+						'<i class="glyphicon glyphicon-usd"></i>' +
+						value.substring(0) +
+						'</div>';
+}
+</script>
